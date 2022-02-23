@@ -22,7 +22,9 @@ export class CreateQrCodeComponent implements OnInit, OnDestroy {
     this._determineIfShowBackButtonShouldBeShown();
   }
 
-  ngOnDestroy(): void { }
+  ngOnDestroy(): void {
+    this._unsubscribeRouterEventsSubscription();
+   }
 
   private _unsubscribeRouterEventsSubscription() {
     if (this._routerEventsSubscription instanceof Subscription) {
