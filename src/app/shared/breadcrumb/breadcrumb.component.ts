@@ -18,4 +18,7 @@ export class BreadcrumbComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  manuallyTriggerChangeDetection() {
+    this._changeDetectorRef.detectChanges();
+  }
 }
