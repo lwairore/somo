@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import * as Immutable from 'immutable';
+import { SeoSocialShareService } from 'ngx-seo';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 
 @Component({
@@ -12,7 +13,9 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   @ViewChild(BreadcrumbComponent)
   private _breadcrumbCmp: BreadcrumbComponent | undefined;
 
-  constructor() { }
+  constructor(
+    private _seoSocialShareService: SeoSocialShareService,
+  ) { }
 
   ngOnInit(): void {
   }
