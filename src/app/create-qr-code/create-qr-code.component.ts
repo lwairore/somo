@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-qr-code',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class CreateQrCodeComponent implements OnInit {
+  private _routerEventsSubscription: Subscription | undefined;
 
   constructor() { }
 
