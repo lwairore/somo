@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import * as Immutable from 'immutable';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 
 @Component({
@@ -14,6 +15,17 @@ export class ContactUsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  private _setupBreadcrumbDetails() {
+    if (this._breadcrumbCmp instanceof BreadcrumbComponent) {
+      this._breadcrumbCmp.breadcrumbItems = Immutable.fromJS([
+        {
+          textContent: 'Contact Us',
+          isActive: false
+        },
+      ])
+    }
   }
 
 }
