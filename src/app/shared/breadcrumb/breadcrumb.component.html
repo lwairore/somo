@@ -1,4 +1,4 @@
-<nav class="py-5">
+<nav class="py-5" *ngIf="!breadcrumbItems.isEmpty()">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -6,10 +6,12 @@
                 <!-- Breadcrumb -->
                 <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
                     <li class="breadcrumb-item">
-                        <a class="text-gray-400" href="index.html">Home</a>
+                        <a class="text-gray-400" routerLink="/">Home</a>
                     </li>
-                    <li class="breadcrumb-item active">
-                        Contact Us
+                    <li class="breadcrumb-item"
+                    [class.active]="breadcrumbItem.get('isActive')"
+                    *ngFor="let breadcrumbItem of breadcrumbItems;">
+                        {{ breadcrumbItem.get('textContent') }}
                     </li>
                 </ol>
 
