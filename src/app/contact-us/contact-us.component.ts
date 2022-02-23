@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-contact-us',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class ContactUsComponent implements OnInit {
+  @ViewChild(BreadcrumbComponent)
+  private _breadcrumbCmp: BreadcrumbComponent | undefined;
 
   constructor() { }
 
