@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Event as NavigationEvent, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -21,4 +21,36 @@ export class CreateQrCodeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  private _determineIfShowBackButtonShouldBeShown() {
+    this._routerEventsSubscription = this._router.events
+      .subscribe((event: NavigationEvent) => {
+        switch (true) {
+          case event instanceof NavigationEnd:
+            this._resetShowBackButton();
+
+            const currentURL = (event as NavigationEnd)?.url;
+
+            console.log("currentURL")
+            console.log(currentURL)
+
+            if (
+              currentURL.startsWith('/qr-code/create/url') ||
+              currentURL.startsWith('/qr-code/create/text') ||
+              currentURL.startsWith('/qr-code/create/contact') ||
+              currentURL.startsWith('/qr-code/create/email') ||
+              currentURL.startsWith('/qr-code/create/sms') ||
+              currentURL.startsWith('/qr-code/create/geo') ||
+              currentURL.startsWith('/qr-code/create/phone') ||
+              currentURL.startsWith('/qr-code/create/wifi')) {
+              this.showBackButton = true;
+            } else {
+              this.showBackButton = false;
+            }
+            break;
+
+          default:
+            break;
+        }
+      })
+  }
 }
