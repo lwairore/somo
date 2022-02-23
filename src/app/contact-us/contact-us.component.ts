@@ -26,9 +26,13 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
       this._breadcrumbCmp.breadcrumbItems = Immutable.fromJS([
         {
           textContent: 'Contact Us',
-          isActive: false
+          isActive: true
         },
-      ])
+      ]);
+
+      if (!this._breadcrumbCmp.breadcrumbItems.isEmpty()) {
+        this._breadcrumbCmp.manuallyTriggerChangeDetection();
+      }
     }
   }
 
