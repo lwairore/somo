@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import * as Immutable from 'immutable';
 
 @Component({
@@ -11,7 +11,9 @@ import * as Immutable from 'immutable';
 export class BreadcrumbComponent implements OnInit {
   breadcrumbItems = Immutable.fromJS([]);
 
-  constructor() { }
+  constructor(
+    private _changeDetectorRef: ChangeDetectorRef,
+  ) { }
 
   ngOnInit(): void {
   }
