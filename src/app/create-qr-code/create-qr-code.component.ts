@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
 export class CreateQrCodeComponent implements OnInit {
   private _routerEventsSubscription: Subscription | undefined;
 
+  showBackButton = false;
+
   constructor() { }
 
   ngOnInit(): void {
