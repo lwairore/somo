@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 
 
@@ -10,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   declarations: [
     FooterComponent,
     NavbarComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     CommonModule,
