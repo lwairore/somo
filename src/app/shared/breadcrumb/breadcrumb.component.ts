@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as Immutable from 'immutable';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class BreadcrumbComponent implements OnInit {
+  breadcrumbItems = Immutable.fromJS([]);
 
   constructor() { }
 
