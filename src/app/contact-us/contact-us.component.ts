@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import * as Immutable from 'immutable';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 
@@ -8,7 +8,7 @@ import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
   styles: [
   ]
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent implements OnInit, AfterViewInit {
   @ViewChild(BreadcrumbComponent)
   private _breadcrumbCmp: BreadcrumbComponent | undefined;
 
@@ -16,6 +16,8 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  ngAfterViewInit(): void { }
 
   private _setupBreadcrumbDetails() {
     if (this._breadcrumbCmp instanceof BreadcrumbComponent) {
