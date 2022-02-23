@@ -23,6 +23,8 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this._setupBreadcrumbDetails();
+
+    this._setupSEODetails();
   }
 
   private _setupSEODetails() {
