@@ -15,7 +15,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand" href="./overview.html">
+        <a class="navbar-brand" [routerLink]="null">
             Somo.
         </a>
 
@@ -29,21 +29,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <!-- Nav -->
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
+                <li class="nav-item" routerLinkActive="active" *ngFor="let navItem of navItems;">
                     <!-- Toggle -->
-                    <a class="nav-link" [routerLink]="null">Create QR Code</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Toggle -->
-                    <a class="nav-link" [routerLink]="null">Scan QR Code</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Toggle -->
-                    <a class="nav-link" [routerLink]="null">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <!-- Toggle -->
-                    <a class="nav-link" [routerLink]="null">About Us</a>
+                    <a class="nav-link" [routerLink]="navItem.get('href')">
+                        {{ navItem.get('textContent') }}
+                    </a>
                 </li>
             </ul>
         </div>
