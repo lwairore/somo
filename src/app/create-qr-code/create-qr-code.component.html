@@ -1,1 +1,30 @@
-<router-outlet></router-outlet>
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
+
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+            <!-- Close -->
+            <button type="button" class="close back-button" aria-label="Click to go back" *ngIf="showBackButton">
+                <a routerLink="/">
+                    <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
+
+            </button>
+            <!-- Close -->
+            <button type="button" class="close" aria-label="Close">
+                <a routerLink="/"> <i class="fe fe-x" aria-hidden="true"></i></a>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Create QR Code</strong>
+            </div>
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+
+
+    </div>
+</div>
