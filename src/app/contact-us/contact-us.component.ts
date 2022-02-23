@@ -17,7 +17,9 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void { }
+  ngAfterViewInit(): void {
+    this._setupBreadcrumbDetails();
+  }
 
   private _setupBreadcrumbDetails() {
     if (this._breadcrumbCmp instanceof BreadcrumbComponent) {
