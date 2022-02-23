@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, Event as NavigationEvent, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CreateQrCodeComponent implements OnInit {
+export class CreateQrCodeComponent implements OnInit, OnDestroy {
   private _routerEventsSubscription: Subscription | undefined;
 
   showBackButton = false;
@@ -21,6 +21,8 @@ export class CreateQrCodeComponent implements OnInit {
   ngOnInit(): void {
     this._determineIfShowBackButtonShouldBeShown();
   }
+
+  ngOnDestroy(): void { }
 
   private _unsubscribeRouterEventsSubscription() {
     if (this._routerEventsSubscription instanceof Subscription) {
