@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CreateQrCodeRoutingModule } from './create-qr-code-routing.module';
 import { CreateQrCodeComponent } from './create-qr-code.component';
 import { CategoryComponent } from './category/category.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { CategoryComponent } from './category/category.component';
   ],
   imports: [
     CommonModule,
-    CreateQrCodeRoutingModule
+    CreateQrCodeRoutingModule,
+    SharedModule,
   ]
 })
 export class CreateQrCodeModule { }
