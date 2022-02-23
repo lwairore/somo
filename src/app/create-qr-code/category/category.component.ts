@@ -37,7 +37,7 @@ export class CategoryComponent implements OnInit {
     },
     {
       textContent: 'Geo',
-      featherIcon: 'fe-map-pin',
+      featherIcon: 'map-pin',
       href: '/create/geo'
     },
     {
