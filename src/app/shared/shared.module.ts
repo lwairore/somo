@@ -20,6 +20,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
   exports: [
     FooterComponent,
     NavbarComponent,
+    BreadcrumbComponent,
   ]
 })
 export class SharedModule { }
