@@ -22,6 +22,13 @@ export class CreateQrCodeComponent implements OnInit {
     this._determineIfShowBackButtonShouldBeShown();
   }
 
+  private _resetShowBackButton() {
+    if (this.showBackButton) {
+      this.showBackButton = false;
+    }
+  }
+
+
   private _determineIfShowBackButtonShouldBeShown() {
     this._routerEventsSubscription = this._router.events
       .subscribe((event: NavigationEvent) => {
