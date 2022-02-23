@@ -19,6 +19,7 @@ export class CreateQrCodeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this._determineIfShowBackButtonShouldBeShown();
   }
 
   private _determineIfShowBackButtonShouldBeShown() {
