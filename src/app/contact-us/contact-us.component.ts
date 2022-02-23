@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import * as Immutable from 'immutable';
 import { SeoSocialShareService } from 'ngx-seo';
+import { environment } from 'src/environments/environment';
 import { BreadcrumbComponent } from '../shared/breadcrumb/breadcrumb.component';
 
 @Component({
@@ -22,6 +23,14 @@ export class ContactUsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this._setupBreadcrumbDetails();
+  }
+
+  private _setupSEODetails() {
+    this._seoSocialShareService.setData({
+      title: 'Contact Us | Somo',
+      description: 'Have a question?  Contact us 24 hours a day 7 days a week for the best customer service!',
+      keywords: 'customer service, technical assistance',
+    });
   }
 
   private _setupBreadcrumbDetails() {
