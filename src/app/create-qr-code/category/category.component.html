@@ -3,20 +3,22 @@
     <section class="py-7">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3" *ngFor="let category of categories;">
 
                     <!-- Item -->
                     <div class="d-flex mb-6 mb-lg-0">
 
                         <!-- Icon -->
-                        <i class="fe fe-home font-size-lg text-primary"></i>
+                        <i class="fe fe-{{category.get('featherIcon')}} font-size-lg text-primary"></i>
 
                         <!-- Body -->
                         <div class="ml-6">
 
                             <!-- Heading -->
                             <h6 class="heading-xxs mb-1">
-                                8 homepage variations
+                               <a class="stretched-link" [routerLink]="category.get('href')">
+                                   {{ category.get('textContent') }}
+                                </a> 
                             </h6>
 
                             <!-- Text -->
@@ -25,87 +27,7 @@
                             </p>
 
                         </div>
-
                     </div>
-
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-
-                    <!-- Item -->
-                    <div class="d-flex mb-6 mb-lg-0">
-
-                        <!-- Icon -->
-                        <i class="fe fe-file-text font-size-lg text-primary"></i>
-
-                        <!-- Body -->
-                        <div class="ml-6">
-
-                            <!-- Heading -->
-                            <h6 class="mb-1 heading-xxs">
-                                30+ support pages
-                            </h6>
-
-                            <!-- Text -->
-                            <p class="mb-0 font-size-sm text-muted">
-                                Shop, account, blog and other inner pages.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-
-                    <!-- Item -->
-                    <div class="d-flex mb-6 mb-md-0">
-
-                        <!-- Icon -->
-                        <i class="fe fe-menu font-size-lg text-primary"></i>
-
-                        <!-- Body -->
-                        <div class="ml-6">
-
-                            <!-- Heading -->
-                            <h6 class="mb-1 heading-xxs">
-                                10+ navigation variations
-                            </h6>
-
-                            <!-- Text -->
-                            <p class="mb-0 font-size-sm text-muted">
-                                Multiple horizontal and vertical navigation options.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-
-                    <!-- Item -->
-                    <div class="d-flex">
-
-                        <!-- Icon -->
-                        <i class="fe fe-shopping-bag font-size-lg text-primary"></i>
-
-                        <!-- Body -->
-                        <div class="ml-6">
-
-                            <!-- Heading -->
-                            <h6 class="mb-1 heading-xxs">
-                                8 product card variations
-                            </h6>
-
-                            <!-- Text -->
-                            <p class="mb-0 font-size-sm text-muted">
-                                To showcase and sell anything you want.
-                            </p>
-
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
         </div>
