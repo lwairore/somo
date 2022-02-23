@@ -13,6 +13,10 @@ const routes: Routes = [
         path: '',
         component: CategoryComponent,
       },
+      {
+        path: '**',
+        component: CategoryComponent,
+      },
     ],
   },
 ];
