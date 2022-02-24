@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { NgxQrcodeElementTypes } from '@techiediaries/ngx-qrcode';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 
 @Component({
   selector: 'app-url',
@@ -16,6 +16,8 @@ export class UrlComponent implements OnInit {
   valueForQrCode = '';
 
   readonly ELEMENT_TYPE = NgxQrcodeElementTypes.URL;
+
+  readonly CORRECTION_LEVEL = NgxQrcodeErrorCorrectionLevels.HIGH;
 
   constructor() { }
 
