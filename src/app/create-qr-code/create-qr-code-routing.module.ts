@@ -5,6 +5,7 @@ import { CreateQrCodeComponent } from './create-qr-code.component';
 import { TextComponent } from './categories/text/text.component';
 import { WifiComponent } from './categories/wifi/wifi.component';
 import { UrlComponent } from './categories/url/url.component';
+import { SmsComponent } from './categories/sms/sms.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'wifi',
         component: WifiComponent,
+      },
+      {
+        path: 'sms',
+        component: SmsComponent,
       },
       {
         path: '**',
