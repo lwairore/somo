@@ -43,6 +43,12 @@ export class UrlComponent implements OnInit, OnDestroy {
       URL.revokeObjectURL(url));
   }
 
+  showHiddenCreateUrlQrCodeForm() {
+    this.valueForQrCode = '';
+
+    this.showQrCode = false;
+  }
+
   private _initializeWebsiteAddressFormGroup() {
     this.websiteAddressFormGroup = this._formBuilder.group({
       url: ['', Validators.compose([
