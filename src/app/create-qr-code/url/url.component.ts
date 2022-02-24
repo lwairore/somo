@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { UrlValidator } from '../validators/url.validator';
 
+const WINDOW_NAVIGATOR = window.navigator as any;
+
 @Component({
   selector: 'app-url',
   templateUrl: './url.component.html',
@@ -72,5 +74,33 @@ export class UrlComponent implements OnInit, OnDestroy {
       ?.get('url')?.value?.trim();
 
     this.showQrCode = true;
+  }
+
+  downloadQRCode() {
+    this._revokeDownloadQrCodeImageURLs();
+    const fileNameToDownload = 'created_url_qr_code';
+
+    const coolQRCodeElement = this._document.getElementsByClassName('coolQRCode');
+    if (!coolQRCodeElement.length) { return; }
+
+    const coolQRCodeElementChildren = coolQRCodeElement[0].children;
+    if (!coolQRCodeElementChildren.length) { return; }
+
+    const base64Img = (coolQRCodeElementChildren[0] as HTMLImageElement)['src'];
+    fetch(base64Img)
+      .then(res => res.blob())
+      .then((blob) => {
+        // IE
+        if (WINDOW_NAVIGATOR && WINDOW_NAVIGATOR.msSaveOrOpenBlob) {
+          WINDOW_NAVIGATOR.msSaveOrOpenBlob(blob, fileNameToDownload);
+        } else { // Chrome
+          const url = window.URL.createObjectURL(blob);
+          this._downloadQrCodeImageURLs.push(url);
+          const link = this._document.createElement('a');
+          link.href = url;
+          link.download = fileNameToDownload;
+          link.click();
+        }
+      })
   }
 }
