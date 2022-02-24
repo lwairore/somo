@@ -6,6 +6,7 @@ import { CategoryComponent } from './category/category.component';
 import { SharedModule } from '../shared/shared.module';
 import { UrlComponent } from './url/url.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     CreateQrCodeRoutingModule,
     SharedModule,
     NgxQRCodeModule,
