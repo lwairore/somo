@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoryComponent } from './category/category.component';
 import { CreateQrCodeComponent } from './create-qr-code.component';
+import { TextComponent } from './text/text.component';
 import { UrlComponent } from './url/url.component';
 
 
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'url',
         component: UrlComponent,
+      },
+      {
+        path: 'text',
+        component: TextComponent,
       },
       {
         path: '**',
