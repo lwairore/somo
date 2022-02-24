@@ -32,6 +32,8 @@ export class UrlComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
 
-  ngOnDestroy(): void { }
+  ngOnDestroy(): void {
+    this._revokeDownloadQrCodeImageURLs();
+   }
 
 }
