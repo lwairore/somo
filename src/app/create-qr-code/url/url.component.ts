@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 
@@ -25,6 +26,7 @@ export class UrlComponent implements OnInit, OnDestroy {
 
   constructor(
     private _formBuilder: FormBuilder,
+    @Inject(DOCUMENT) private _document: Document,
   ) { }
 
   ngOnInit(): void {
