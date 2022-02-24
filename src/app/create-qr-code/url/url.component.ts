@@ -21,6 +21,8 @@ export class UrlComponent implements OnInit {
 
   showQrCode = false;
 
+  private _downloadQrCodeImageURLs: string[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
