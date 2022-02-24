@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { FormatUrlPipe } from './pipes/format-url.pipe';
 
 
 
@@ -12,6 +13,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     FooterComponent,
     NavbarComponent,
     BreadcrumbComponent,
+    FormatUrlPipe,
   ],
   imports: [
     CommonModule,
