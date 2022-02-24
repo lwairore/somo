@@ -8,6 +8,7 @@ import { UrlComponent } from './categories/url/url.component';
 import { SmsComponent } from './categories/sms/sms.component';
 import { PhoneComponent } from './categories/phone/phone.component';
 import { GeoComponent } from './categories/geo/geo.component';
+import { EmailComponent } from './categories/email/email.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: '',
         component: CategoryComponent,
+      },
+      {
+        path: 'email',
+        component: EmailComponent,
       },
       {
         path: 'url',
