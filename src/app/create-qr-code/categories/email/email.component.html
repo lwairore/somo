@@ -1,1 +1,141 @@
-<p>email works!</p>
+<ng-container *ngIf="showQrCode; else showCreateSmsForm;">
+    <section class="pt-7 pb-12">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <p class="mb-10">Link anyone to get details for WiFi by sending them this QR code: </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="text-center">
+                    <ngx-qrcode *ngIf="valueForQrCode" [elementType]="ELEMENT_TYPE"
+                        [errorCorrectionLevel]="CORRECTION_LEVEL" [value]="valueForQrCode" cssClass="coolQRCode">
+                    </ngx-qrcode>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-8">
+                <div class="col-12 col-lg-auto">
+
+                    <!-- Submit -->
+                    <button class="btn btn-block btn-dark mb-2" (click)="downloadQRCode()" title="Download QR Code">
+                        <i class="fe fe-save mr-2"></i> Download QR Code
+                    </button>
+
+                </div>
+                <div class="col-12 col-lg-auto">
+                    <!-- Wishlist -->
+                    <button class="btn btn-outline-dark btn-block mb-2" title="Edit Details on QR Code"
+                        aria-label="Edit Details on QR Code" (click)="showHiddenEmailDetailsForm()">
+                        <i class="fe fe-edit-3 mr-2"></i>Edit QR Code
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</ng-container>
+
+<ng-template #showCreateSmsForm>
+    <section class="pt-7 pb-12">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <p class="mb-1 font-size-xs">
+                        <a [routerLink]="null" class="text-reset">
+                            <i class="fe fe-mail mr-2"></i>Email
+                        </a>
+                    </p>
+                    <p>
+                        <span class="text-gray-500">SMS marketing made simple. Allow your customers to send a text
+                            message to a designated number easily.</span>
+                        <a class="text-reset text-decoration-underline" [routerLink]="null"> Learn
+                            more</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Divider -->
+                    <hr class="my-7">
+
+                    <!-- Form -->
+                    <form [formGroup]="emailDetailsFormGroup" (ngSubmit)="submitForm()">
+                        <!-- Billing details -->
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label class="sr-only" for="emailDetailsFormGroup__email">Email:</label>
+                                    <input class="form-control form-control-sm" id="emailDetailsFormGroup__email"
+                                        type="email" placeholder="Email" formControlName="mailto"
+                                        [class.is-invalid]="emailDetailsFormGroup?.get('mailto')?.invalid && (isSubmitted || emailDetailsFormGroup?.get('mailto')?.touched)">
+                                    <div class="invalid-feedback"
+                                        *ngIf="emailDetailsFormGroup?.get('mailto')?.invalid && (isSubmitted || emailDetailsFormGroup?.get('mailto')?.touched)">
+                                        <ng-container
+                                            *ngIf="emailDetailsFormGroup?.get('mailto')?.hasError('required'); else showOtherEmailErrors;">
+                                            Please provide an email.
+                                        </ng-container>
+                                        <ng-template #showOtherEmailErrors>
+                                            <ng-container
+                                                *ngIf="emailDetailsFormGroup?.get('mailto')?.hasError('email')">
+                                                Are you sure you entered the email properly?
+                                            </ng-container>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <!-- Organization -->
+                                <div class="form-group">
+                                    <label class="sr-only" for="emailDetailsFormGroup__subject">Subject:</label>
+                                    <input class="form-control form-control-sm" id="emailDetailsFormGroup__subject"
+                                        type="text" placeholder="Subject" formControlName="subject"
+                                        [class.is-invalid]="emailDetailsFormGroup?.get('subject')?.invalid && (isSubmitted || emailDetailsFormGroup?.get('subject')?.touched)">
+                                    <div class="invalid-feedback"
+                                        *ngIf="emailDetailsFormGroup?.get('subject')?.invalid && (isSubmitted || emailDetailsFormGroup?.get('subject')?.touched)">
+                                        <ng-container
+                                            *ngIf="emailDetailsFormGroup?.get('subject')?.hasError('maxlength')">
+                                            Subject should not exceed 25 chars long.
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <!-- Body -->
+                                <div class="form-group">
+                                    <label class="sr-only" for="emailDetailsFormGroup__body">Body:</label>
+                                    <textarea class="form-control form-control-sm" id="emailDetailsFormGroup__body"
+                                        placeholder="Text" rows="5" formControlName="body"
+                                        [class.is-invalid]="emailDetailsFormGroup?.get('body')?.invalid && (isSubmitted || emailDetailsFormGroup?.get('body')?.touched)"></textarea>
+                                    <div class="invalid-feedback"
+                                        *ngIf="this.emailDetailsFormGroup?.get('body')?.invalid && (isSubmitted || this.emailDetailsFormGroup?.get('body')?.touched)">
+                                        <ng-container *ngIf="emailDetailsFormGroup?.get('body')?.hasError('maxlength')">
+                                            Body should not exceed 200 chars long.
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Disclaimer -->
+                        <p class="mb-7 font-size-xs text-gray-500 mt-8">
+                            Your personal data will be used to process your order, support
+                            your experience throughout this website, and for other purposes
+                            described in our privacy policy.
+                        </p>
+
+                        <!-- Button -->
+                        <button class="btn btn-block btn-dark" type="submit">
+                            Create QR Code
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-template>
