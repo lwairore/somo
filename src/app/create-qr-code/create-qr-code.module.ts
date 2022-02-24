@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TextComponent } from './categories/text/text.component';
 import { WifiComponent } from './categories/wifi/wifi.component';
 import { UrlComponent } from './categories/url/url.component';
+import { SmsComponent } from './categories/sms/sms.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UrlComponent } from './categories/url/url.component';
     CategoryComponent,
     UrlComponent,
     TextComponent,
-    WifiComponent
+    WifiComponent,
+    SmsComponent
   ],
   imports: [
     CommonModule,
