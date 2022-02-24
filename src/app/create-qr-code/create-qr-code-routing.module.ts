@@ -4,6 +4,7 @@ import { CategoryComponent } from './category/category.component';
 import { CreateQrCodeComponent } from './create-qr-code.component';
 import { TextComponent } from './text/text.component';
 import { UrlComponent } from './url/url.component';
+import { WifiComponent } from './wifi/wifi.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'text',
         component: TextComponent,
+      },
+      {
+        path: 'wifi',
+        component: WifiComponent,
       },
       {
         path: '**',
