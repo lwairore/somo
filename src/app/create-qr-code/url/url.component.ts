@@ -11,7 +11,9 @@ export class UrlComponent implements OnInit {
   websiteAddressFormGroup: FormGroup | undefined;
 
   isSubmitted = false;
-  
+
+  valueForQrCode = '';
+
   constructor() { }
 
   ngOnInit(): void {
