@@ -9,6 +9,8 @@ import { FormGroup } from '@angular/forms';
 })
 export class UrlComponent implements OnInit {
   websiteAddressFormGroup: FormGroup | undefined;
+
+  isSubmitted = false;
   
   constructor() { }
 
