@@ -6,3 +6,4 @@ export { isObjectEmpty } from './is-object-empty.util';
 export { isUrl } from './is-url.util';
 export { stringIsEmpty } from './string-is-empty.util';
 export { whichValueShouldIUse } from './which-value-should-i-use.util';
+export { encodeStringToUri } from './encode-string-to-uri.util';

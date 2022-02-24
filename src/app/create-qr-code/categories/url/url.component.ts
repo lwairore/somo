@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { whichValueShouldIUse } from '@sharedModule/utils';
 import { ExpectedType } from '@sharedModule/utils/which-value-should-i-use.util';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
-import { UrlValidator } from '../validators/url.validator';
+import { UrlValidator } from '../../validators';
 
 const WINDOW_NAVIGATOR = window.navigator as any;
 
@@ -74,7 +74,7 @@ export class UrlComponent implements OnInit, OnDestroy {
 
     this.valueForQrCode = whichValueShouldIUse(
       this.websiteAddressFormGroup
-      ?.get('url')?.value?.trim(), '', ExpectedType.STRING)
+        ?.get('url')?.value?.trim(), '', ExpectedType.STRING)
 
     this.showQrCode = true;
   }
