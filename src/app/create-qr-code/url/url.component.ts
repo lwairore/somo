@@ -19,6 +19,8 @@ export class UrlComponent implements OnInit {
 
   readonly CORRECTION_LEVEL = NgxQrcodeErrorCorrectionLevels.HIGH;
 
+  showQrCode = false;
+
   constructor() { }
 
   ngOnInit(): void {
