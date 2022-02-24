@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-url',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class UrlComponent implements OnInit {
-
+  websiteAddressFormGroup: FormGroup | undefined;
+  
   constructor() { }
 
   ngOnInit(): void {
