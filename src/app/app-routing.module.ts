@@ -13,6 +13,11 @@ const routes: Routes = [
     loadChildren: () => import('./create-qr-code/create-qr-code.module')
       .then(c => c.CreateQrCodeModule),
   },
+  {
+    path: 'scan',
+    loadChildren: () => import('./scan-qr-code/scan-qr-code.module')
+      .then(s => s.ScanQrCodeModule),
+  },
 ];
 
 @NgModule({
