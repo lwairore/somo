@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { FormatUrlPipe } from './pipes/format-url.pipe';
+import { DynamicallySetHeightUsingScrollHeightDirective } from './directives/dynamically-set-height-using-scroll-height.directive';
 
 
 
@@ -14,6 +15,7 @@ import { FormatUrlPipe } from './pipes/format-url.pipe';
     NavbarComponent,
     BreadcrumbComponent,
     FormatUrlPipe,
+    DynamicallySetHeightUsingScrollHeightDirective,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { FormatUrlPipe } from './pipes/format-url.pipe';
     NavbarComponent,
     BreadcrumbComponent,
     FormatUrlPipe,
+    DynamicallySetHeightUsingScrollHeightDirective,
   ]
 })
 export class SharedModule { }
