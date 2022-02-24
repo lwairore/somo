@@ -3,7 +3,7 @@ import { isUrl, stringIsEmpty } from "@sharedModule/utils";
 
 export class UrlValidator {
     static invalidUrl(control: FormControl): { [key: string]: boolean } | null {
-        const formControlValue = control.value;
+        const formControlValue = control.value?.trim();
 
         if (stringIsEmpty(formControlValue)) {
             return { invalidUrl: true }
