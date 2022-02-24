@@ -16,6 +16,11 @@
       "dom"
     ],
     "strict": true,
+    "paths": {
+      "@sharedModule/*": [
+        "src/app/shared/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
