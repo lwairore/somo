@@ -13,6 +13,7 @@ import { SmsComponent } from './categories/sms/sms.component';
 import { PhoneComponent } from './categories/phone/phone.component';
 import { GeoComponent } from './categories/geo/geo.component';
 import { EmailComponent } from './categories/email/email.component';
+import { ContactComponent } from './categories/contact/contact.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EmailComponent } from './categories/email/email.component';
     SmsComponent,
     PhoneComponent,
     GeoComponent,
-    EmailComponent
+    EmailComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
