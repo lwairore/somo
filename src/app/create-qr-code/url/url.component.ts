@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 
@@ -8,7 +8,7 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
   styles: [
   ]
 })
-export class UrlComponent implements OnInit {
+export class UrlComponent implements OnInit, OnDestroy {
   websiteAddressFormGroup: FormGroup | undefined;
 
   isSubmitted = false;
@@ -27,5 +27,7 @@ export class UrlComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  ngOnDestroy(): void { }
 
 }
