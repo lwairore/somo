@@ -6,7 +6,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { FormatUrlPipe } from './pipes/format-url.pipe';
 import { DynamicallySetHeightUsingScrollHeightDirective } from './directives/dynamically-set-height-using-scroll-height.directive';
-import { InputPatternEnforcerDirective } from './directives/input-pattern-enforcer.directive';
 
 
 
@@ -17,7 +16,6 @@ import { InputPatternEnforcerDirective } from './directives/input-pattern-enforc
     BreadcrumbComponent,
     FormatUrlPipe,
     DynamicallySetHeightUsingScrollHeightDirective,
-    InputPatternEnforcerDirective,
   ],
   imports: [
     CommonModule,
@@ -29,7 +27,6 @@ import { InputPatternEnforcerDirective } from './directives/input-pattern-enforc
     BreadcrumbComponent,
     FormatUrlPipe,
     DynamicallySetHeightUsingScrollHeightDirective,
-    InputPatternEnforcerDirective,
   ]
 })
 export class SharedModule { }
