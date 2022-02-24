@@ -8,6 +8,7 @@ import { UrlComponent } from './url/url.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TextComponent } from './text/text.component';
+import { WifiComponent } from './wifi/wifi.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TextComponent } from './text/text.component';
     CreateQrCodeComponent,
     CategoryComponent,
     UrlComponent,
-    TextComponent
+    TextComponent,
+    WifiComponent
   ],
   imports: [
     CommonModule,
