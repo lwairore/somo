@@ -40,8 +40,10 @@ export class CreateQrCodeComponent implements OnInit, OnDestroy {
 
 
   private _determineIfShowBackButtonShouldBeShown() {
+    console.log("_determineIfShowBackButtonShouldBeShown")
     this._routerEventsSubscription = this._router.events
       .subscribe((event: NavigationEvent) => {
+        console.log("(event as NavigationEnd)?.url")
         switch (true) {
           case event instanceof NavigationEnd:
             this._resetShowBackButton();
@@ -52,14 +54,14 @@ export class CreateQrCodeComponent implements OnInit, OnDestroy {
             console.log(currentURL)
 
             if (
-              currentURL.startsWith('/qr-code/create/url') ||
-              currentURL.startsWith('/qr-code/create/text') ||
-              currentURL.startsWith('/qr-code/create/contact') ||
-              currentURL.startsWith('/qr-code/create/email') ||
-              currentURL.startsWith('/qr-code/create/sms') ||
-              currentURL.startsWith('/qr-code/create/geo') ||
-              currentURL.startsWith('/qr-code/create/phone') ||
-              currentURL.startsWith('/qr-code/create/wifi')) {
+              currentURL.startsWith('/create/url') ||
+              currentURL.startsWith('/create/text') ||
+              currentURL.startsWith('/create/contact') ||
+              currentURL.startsWith('/create/email') ||
+              currentURL.startsWith('/create/sms') ||
+              currentURL.startsWith('/create/geo') ||
+              currentURL.startsWith('/create/phone') ||
+              currentURL.startsWith('/create/wifi')) {
               this.showBackButton = true;
             } else {
               this.showBackButton = false;
