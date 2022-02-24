@@ -6,6 +6,7 @@ import { TextComponent } from './categories/text/text.component';
 import { WifiComponent } from './categories/wifi/wifi.component';
 import { UrlComponent } from './categories/url/url.component';
 import { SmsComponent } from './categories/sms/sms.component';
+import { PhoneComponent } from './categories/phone/phone.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'sms',
         component: SmsComponent,
+      },
+      {
+        path: 'phone',
+        component: PhoneComponent,
       },
       {
         path: '**',
