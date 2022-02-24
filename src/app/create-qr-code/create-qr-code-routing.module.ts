@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoryComponent } from './category/category.component';
 import { CreateQrCodeComponent } from './create-qr-code.component';
-import { TextComponent } from './text/text.component';
-import { UrlComponent } from './url/url.component';
-import { WifiComponent } from './wifi/wifi.component';
+import { TextComponent } from './categories/text/text.component';
+import { WifiComponent } from './categories/wifi/wifi.component';
+import { UrlComponent } from './categories/url/url.component';
 
 
 const routes: Routes = [

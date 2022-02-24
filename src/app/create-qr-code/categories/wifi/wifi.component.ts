@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { convertItemToString, getBoolean, stringIsEmpty } from '@sharedModule/utils';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import * as Immutable from 'immutable';
-import { ShouldPasswordBeProvidedAsWifiDetail } from '../validators';
+import { ShouldPasswordBeProvidedAsWifiDetail } from '../../validators';
 
 const WINDOW_NAVIGATOR = window.navigator as any;
 
