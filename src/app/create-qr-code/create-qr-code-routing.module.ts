@@ -7,6 +7,7 @@ import { WifiComponent } from './categories/wifi/wifi.component';
 import { UrlComponent } from './categories/url/url.component';
 import { SmsComponent } from './categories/sms/sms.component';
 import { PhoneComponent } from './categories/phone/phone.component';
+import { GeoComponent } from './categories/geo/geo.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: 'phone',
         component: PhoneComponent,
+      },
+      {
+        path: 'geo',
+        component: GeoComponent,
       },
       {
         path: '**',
