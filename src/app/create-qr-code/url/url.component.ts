@@ -52,4 +52,19 @@ export class UrlComponent implements OnInit, OnDestroy {
       ])]
     }, { updateOn: 'blur' });
   }
+
+  submitForm() {
+    if (!this.isSubmitted) {
+      this.isSubmitted = true;
+    }
+
+    if (this.websiteAddressFormGroup?.invalid) {
+      return;
+    }
+
+    this.valueForQrCode = this.websiteAddressFormGroup
+      ?.get('url')?.value?.trim();
+
+    this.showQrCode = true;
+  }
 }
