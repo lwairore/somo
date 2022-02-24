@@ -10,6 +10,7 @@ import { TextComponent } from './categories/text/text.component';
 import { WifiComponent } from './categories/wifi/wifi.component';
 import { UrlComponent } from './categories/url/url.component';
 import { SmsComponent } from './categories/sms/sms.component';
+import { PhoneComponent } from './categories/phone/phone.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SmsComponent } from './categories/sms/sms.component';
     UrlComponent,
     TextComponent,
     WifiComponent,
-    SmsComponent
+    SmsComponent,
+    PhoneComponent
   ],
   imports: [
     CommonModule,
