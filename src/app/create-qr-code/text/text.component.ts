@@ -68,7 +68,7 @@ export class TextComponent implements OnInit, OnDestroy {
     const textValue = convertItemToString(
       this.textFormGroup?.get('text')?.value?.trim());
 
-    if (stringIsEmpty(textValue)) {
+    if (this.textFormGroup?.invalid || stringIsEmpty(textValue)) {
       return;
     }
 
