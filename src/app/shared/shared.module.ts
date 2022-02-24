@@ -23,6 +23,7 @@ import { FormatUrlPipe } from './pipes/format-url.pipe';
     FooterComponent,
     NavbarComponent,
     BreadcrumbComponent,
+    FormatUrlPipe,
   ]
 })
 export class SharedModule { }
