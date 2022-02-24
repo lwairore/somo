@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 
 @Component({
@@ -23,7 +23,9 @@ export class UrlComponent implements OnInit, OnDestroy {
 
   private _downloadQrCodeImageURLs: string[] = [];
 
-  constructor() { }
+  constructor(
+    private _formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
   }
