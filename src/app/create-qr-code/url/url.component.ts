@@ -1,7 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { UrlValidator } from '../validators/url.validator';
 
 @Component({
   selector: 'app-url',
@@ -40,5 +41,15 @@ export class UrlComponent implements OnInit, OnDestroy {
   private _revokeDownloadQrCodeImageURLs() {
     this._downloadQrCodeImageURLs.forEach(url =>
       URL.revokeObjectURL(url));
+  }
+
+  private _initializeWebsiteAddressFormGroup() {
+    this.websiteAddressFormGroup = this._formBuilder.group({
+      url: ['', Validators.compose([
+        Validators.maxLength(2083),
+        Validators.required,
+        UrlValidator.invalidUrl
+      ])]
+    }, { updateOn: 'blur' });
   }
 }
