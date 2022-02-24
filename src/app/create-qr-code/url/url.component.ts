@@ -30,6 +30,7 @@ export class UrlComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this._initializeWebsiteAddressFormGroup();
   }
 
   ngOnDestroy(): void {
