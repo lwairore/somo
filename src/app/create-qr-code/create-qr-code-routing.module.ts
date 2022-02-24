@@ -9,6 +9,7 @@ import { SmsComponent } from './categories/sms/sms.component';
 import { PhoneComponent } from './categories/phone/phone.component';
 import { GeoComponent } from './categories/geo/geo.component';
 import { EmailComponent } from './categories/email/email.component';
+import { ContactComponent } from './categories/contact/contact.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: '',
         component: CategoryComponent,
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
       },
       {
         path: 'email',
