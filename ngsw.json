@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1647655462137,
+  "timestamp": 1647655778430,
   "index": "/somo/index.html",
   "assetGroups": [
     {
@@ -206,7 +206,7 @@
     "/somo/index.html": "91900357921d113943a41986f466802a394d038d",
     "/somo/main-es2015.fe8d4a465f37617e85a2.js": "871e5c6c83d3d5cfc277f2993cc8f02dc466656e",
     "/somo/main-es5.fe8d4a465f37617e85a2.js": "41c1b0e43e9575fa09d805b45a91509e97dc59f0",
-    "/somo/manifest.webmanifest": "793af5386656b72d2ce36adfbd7d5a8ca03d4bcc",
+    "/somo/manifest.webmanifest": "f9c13902f6d68a417b39407971524c87b9284c61",
     "/somo/polyfills-es2015.2eebf3cd865574802589.js": "38c401aacfa84b10782d4128d2f672bbafb86ec0",
     "/somo/polyfills-es5.a0e845ca70d9489cf42d.js": "dd295ccf250bb9c560d3544e2f086bd318cfd09e",
     "/somo/runtime-es2015.7e1013a166f48aba4b27.js": "024b0292d23ba4d14c474151259c4ea2b1456f14",
