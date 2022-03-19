@@ -27,7 +27,7 @@ import { ContactComponent } from './categories/contact/contact.component';
     PhoneComponent,
     GeoComponent,
     EmailComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     CommonModule,

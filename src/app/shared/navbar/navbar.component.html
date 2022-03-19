@@ -29,12 +29,14 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <!-- Nav -->
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item" routerLinkActive="active" *ngFor="let navItem of navItems;">
-                    <!-- Toggle -->
-                    <a class="nav-link" [routerLink]="navItem.get('href')">
-                        {{ navItem.get('textContent') }}
-                    </a>
-                </li>
+                <ng-container *ngFor="let navItem of navItems;">
+                    <li class="nav-item" routerLinkActive="active" *ngIf="navItem.get('show')">
+                        <!-- Toggle -->
+                        <a class="nav-link" [routerLink]="navItem.get('href')">
+                            {{ navItem.get('textContent') }}
+                        </a>
+                    </li>
+                </ng-container>
             </ul>
         </div>
 

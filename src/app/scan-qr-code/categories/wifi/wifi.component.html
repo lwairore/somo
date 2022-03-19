@@ -1,0 +1,86 @@
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
+
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+
+            <button type="button" class="close back-button" aria-label="Click to go back" (click)="resetScanner()">
+                <a [routerLink]="null">
+                    <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
+
+            </button>
+
+            <!-- Share -->
+            <button type="button" class="close" aria-label="Share the value of QR code" data-toggle="modal"
+                data-target="#modalSocialShareCta"> <a [routerLink]="null">
+                    <i class="fe fe-share-2" aria-hidden="true"></i></a>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Wifi</strong>
+            </div>
+            <div class="text-center mt-8">
+                <div class="avatar avatar-xxl mb-6 mb-md-0"><span class="avatar-title rounded-circle"><i
+                            class="fe fe-wifi"></i></span></div>
+                <p class="mb-0 font-size-sm font-weight-bold mt-2">{{ wifiScanResult?.ssidOrNetworkName }}</p>
+                <p class="text-gray-500 mt-4" *ngIf="wifiScanResult.hidden">Wifi is hidden</p>
+            </div>
+
+            <div class="container text-center">
+                <div class="row justify-content-center py-9">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="row">
+
+                            <div class="col-12">
+
+                                <!-- List -->
+                                <ul class="list list-unstyled mb-md-0 text-gray-500">
+                                    <li *ngIf="wifiScanResult?.encryption">
+                                        <strong class="text-body">Encryption</strong>: {{ wifiScanResult.encryption }}
+                                    </li>
+                                    <li>
+                                        <strong class="text-body">Password</strong>:
+                                        <ng-container *ngIf="wifiScanResult.password; else passwordNotSet;">
+                                            {{ wifiScanResult.password }}
+                                        </ng-container>
+                                        <ng-template #passwordNotSet>Wifi has no password</ng-template>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <a class="btn btn-block btn-dark" [routerLink]="null" *ngIf="wifiScanResult.password"
+                    (click)="copyPasswordToClipboard()">Copy password<i class="fe fe-copy ml-2"></i></a>
+
+                <a class="btn btn-block" [class.btn-dark]="!wifiScanResult.password"
+                    [class.btn-danger]="wifiScanResult.password" [routerLink]="null" (click)="copyToClipboard()">
+                    Copy<i class="fe fe-copy ml-2"></i></a>
+            </div>
+
+            <div class="alert alert-danger alert-dismissible fade show fixed-bottom" role="alert"
+                *ngIf="showCopiedToClipboardFeedback">
+
+                <!-- Text -->
+                <strong>WIFI detail(s) copied to clipboard!</strong>
+
+                <!-- Button -->
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<app-social-share-cta [title]="constructWifiText()" [description]="constructWifiText()"></app-social-share-cta>

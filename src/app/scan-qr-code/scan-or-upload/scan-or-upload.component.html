@@ -1,1 +1,157 @@
-<p>scan-or-upload works!</p>
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
+
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+
+            <button type="button" class="close back-button" aria-label="Click to go back">
+                <a routerLink="/">
+                    <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
+
+            </button>
+
+            <!-- Close -->
+            <button type="button" class="close font-weight-bold" data-dismiss="modal" aria-label="Upload & Scan Image"
+                (click)="captureImage()">
+                <a [routerLink]="null"> <span class="line-height-fixed font-size-lg">
+                        Album
+                    </span></a>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Scan</strong>
+            </div>
+
+            <!-- Fallback for iOS PWA -->
+            <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event)">
+
+            <div class="mt-8">
+                <div class="container">
+                    <div class="col-12 col-md">
+
+                        <!-- Header -->
+                        <div class="row mb-1 text-center">
+                            <div class="col">
+
+                                <!-- Preheading -->
+                                <a class="text-muted" [routerLink]="null">
+                                    Align QR code in frame to scan
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="card">
+                            <div class="card-body mx-auto">
+
+                                <div class="card" style="max-width: 320px;">
+                                    <div class="card-img">
+
+                                        <!-- Shows our camera stream -->
+                                        <video #video [hidden]="!scanActive" width="100%" height="300px"
+                                            class="card-img-top"></video>
+
+                                        <!-- Used to render the camera stream images -->
+                                        <canvas #canvas hidden></canvas>
+
+                                        <!-- Actions -->
+                                        <div class="card-actions">
+                                            <span class="card-action">
+                                                <button class="btn btn-xs btn-circle btn-white-primary"
+                                                    *ngIf="scanActive"
+                                                    (click)="startScan(cameraFacingMode.frontCamera)">
+                                                    <i class="fe fe-refresh-ccw"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="row align-items-center" *ngIf="false">
+                            <div class="col-auto mr-auto">
+
+                                <!-- Rate -->
+                                <div class="rate">
+                                    <a class="rate-item" [routerLink]="null" role="button"
+                                        title="Edit Details on QR Code" aria-label="Edit Details on QR Code">
+                                        <i class="fe fe-edit-3 mr-2"></i>
+                                    </a>
+                                    <a class="rate-item" [routerLink]="null" role="button">
+                                        <i class="fe fe-trash"></i>
+                                    </a>
+                                    <a class="rate-item" [routerLink]="null" role="button">
+                                        <i class="fe fe-share-2"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="col-auto">
+                                <!-- Button -->
+                                <a class="btn btn-xs btn-outline-border" [routerLink]="null" title="Download QR Code"
+                                    aria-label="Download QR Code">
+                                    <i class="fe fe-save mr-2"></i>Save
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer line-height-fixed font-size-sm bg-danger mt-auto" *ngIf="failedToReadQRCode">
+                <strong>Failed to read QR code.</strong>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<a class="text-reset text-decoration-underline ml-3" data-toggle="modal" href="#modalSizeChart"
+    #permissionDeniedNotifier [style.display]="'none'">
+    Permission denied when accessing camera
+</a>
+
+<div class="modal fade" id="modalSizeChart" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal modal-lg" role="document">
+        <div class="modal-content">
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Allow Somo to use your camera</strong>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Text -->
+                        <p class="font-size-sm text-center text-gray-500">
+                            <strong>Camera is blocked.</strong> Somo requires access to your camera so that it can be
+                            able to scan a QR code. Somo will ask
+                            you
+                            to confirm this decision on each browser and computer that you use. Click the camera blocked
+                            icon <img alt="" style="vertical-align: middle;"
+                                src="assets/img/ic_blocked_camera_dark.svg"> in your browser's address bar. Then refresh the page.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

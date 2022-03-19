@@ -6,6 +6,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { FormatUrlPipe } from './pipes/format-url.pipe';
 import { DynamicallySetHeightUsingScrollHeightDirective } from './directives/dynamically-set-height-using-scroll-height.directive';
+import { SanitizeValuePipe } from './pipes/sanitize-value.pipe';
+import { DecodeEncodedUriStringPipe } from './pipes/decode-encoded-uri-string.pipe';
+import { SphericalCoordinatesToDmsPipe } from './pipes/spherical-coordinates-to-dms.pipe';
+import { SocialShareCtaComponent } from './social-share-cta/social-share-cta.component';
+import { ShareModule } from 'ngx-sharebuttons';
+import { WrapUrlInAnchorTagPipe } from './pipes/wrap-url-in-anchor-tag.pipe';
+import { ExternalLinkDirective } from './directives/external-link.directive';
 
 
 
@@ -16,10 +23,17 @@ import { DynamicallySetHeightUsingScrollHeightDirective } from './directives/dyn
     BreadcrumbComponent,
     FormatUrlPipe,
     DynamicallySetHeightUsingScrollHeightDirective,
+    SanitizeValuePipe,
+    DecodeEncodedUriStringPipe,
+    SphericalCoordinatesToDmsPipe,
+    SocialShareCtaComponent,
+    WrapUrlInAnchorTagPipe,
+    ExternalLinkDirective,
   ],
   imports: [
     CommonModule,
     RouterModule,
+    ShareModule,
   ],
   exports: [
     FooterComponent,
@@ -27,6 +41,12 @@ import { DynamicallySetHeightUsingScrollHeightDirective } from './directives/dyn
     BreadcrumbComponent,
     FormatUrlPipe,
     DynamicallySetHeightUsingScrollHeightDirective,
+    SanitizeValuePipe,
+    DecodeEncodedUriStringPipe,
+    SphericalCoordinatesToDmsPipe,
+    SocialShareCtaComponent,
+    WrapUrlInAnchorTagPipe,
+    ExternalLinkDirective,
   ]
 })
 export class SharedModule { }

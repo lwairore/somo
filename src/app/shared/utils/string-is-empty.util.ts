@@ -1,4 +1,4 @@
-import { memoize } from "lodash";
+import { memoize } from "lodash-es";
 import { convertItemToString } from "./convert-item-to-string.util";
 
 const EMPTY_STRING_REG = /^\s*$/;

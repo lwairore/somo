@@ -1,4 +1,4 @@
-import { memoize } from "lodash";
+import { memoize } from "lodash-es";
 import { convertItemToNumeric } from "./convert-item-to-numeric.util";
 import { convertItemToString } from "./convert-item-to-string.util";
 import { getBoolean } from "./get-boolean.util";

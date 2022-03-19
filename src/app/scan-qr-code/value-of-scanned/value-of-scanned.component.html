@@ -1,0 +1,34 @@
+<ng-container [ngSwitch]="categoryOfQrCode">
+    <ng-container *ngSwitchCase="urlQrCodeCategory">
+        <app-url [urlScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-url>
+    </ng-container>
+    <ng-container *ngSwitchCase="emailQrCodeCategory">
+        <app-email [emailScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-email>
+    </ng-container>
+    <ng-container *ngSwitchCase="smsQrCodeCategory">
+        <app-sms [smsScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-sms>
+    </ng-container>
+    <ng-container *ngSwitchCase="geoQrCodeCategory">
+        <app-geo [geoScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-geo>
+    </ng-container>
+    <ng-container *ngSwitchCase="telQrCodeCategory">
+        <app-phone [telScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-phone>
+    </ng-container>
+    <ng-container *ngSwitchCase="mecardQrCodeCategory">
+        <app-contact [mecardScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-contact>
+    </ng-container>
+    <ng-container *ngSwitchCase="wifiQrCodeCategory">
+        <app-wifi [wifiScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-wifi>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <app-text [otherScanResult]="formattedQrCodeScanResult" (scanAgain)="resetScanner()">
+        </app-text>
+    </ng-container>
+</ng-container>

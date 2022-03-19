@@ -7,12 +7,13 @@ import { Subscription } from 'rxjs';
   templateUrl: './create-qr-code.component.html',
   styles: [
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateQrCodeComponent implements OnInit, OnDestroy {
   private _routerEventsSubscription: Subscription | undefined;
 
   showBackButton = false;
+
+  BACK_TO = './create';
 
   constructor(
     private _router: Router,

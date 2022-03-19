@@ -1,1 +1,6 @@
-<app-scan-or-upload></app-scan-or-upload>
+<app-value-of-scanned *ngIf="scanResult?.length; else showScanAndUploadSection;" [qrCodeResult]="scanResult"
+    (scanAgain)="reset()"></app-value-of-scanned>
+
+<ng-template #showScanAndUploadSection>
+    <app-scan-or-upload (qrCodeScanned)="scannedQrCodeResult($event)"></app-scan-or-upload>
+</ng-template>

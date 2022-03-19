@@ -1,35 +1,54 @@
-<!-- Buttons -->
-<div class="modal-body">
-    <section class="py-7">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-3" *ngFor="let category of categories;">
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
 
-                    <!-- Item -->
-                    <div class="d-flex mb-6 mb-lg-0">
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+            <!-- Close -->
+            <button type="button" class="close" aria-label="Close">
+                <a routerLink="../"> <i class="fe fe-x" aria-hidden="true"></i></a>
+            </button>
 
-                        <!-- Icon -->
-                        <i class="fe fe-{{category.get('featherIcon')}} font-size-lg text-primary"></i>
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Create QR Code</strong>
+            </div>
 
-                        <!-- Body -->
-                        <div class="ml-6">
+            <!-- Buttons -->
+            <div class="modal-body">
+                <section class="py-7">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-3" *ngFor="let category of categories;">
 
-                            <!-- Heading -->
-                            <h6 class="heading-xxs mb-1">
-                               <a class="stretched-link" [routerLink]="category.get('href')">
-                                   {{ category.get('textContent') }}
-                                </a> 
-                            </h6>
+                                <!-- Item -->
+                                <div class="d-flex mb-6 mb-lg-0">
 
-                            <!-- Text -->
-                            <p class="mb-0 font-size-sm text-muted">
-                                {{ category.get('helpText') }}
-                            </p>
+                                    <!-- Icon -->
+                                    <i class="fe fe-{{category.get('featherIcon')}} font-size-lg text-primary"></i>
 
+                                    <!-- Body -->
+                                    <div class="ml-6">
+
+                                        <!-- Heading -->
+                                        <h6 class="heading-xxs mb-1">
+                                            <a class="stretched-link" [routerLink]="category.get('href')">
+                                                {{ category.get('textContent') }}
+                                            </a>
+                                        </h6>
+
+                                        <!-- Text -->
+                                        <p class="mb-0 font-size-sm text-muted">
+                                            {{ category.get('helpText') }}
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
-    </section>
+    </div>
 </div>

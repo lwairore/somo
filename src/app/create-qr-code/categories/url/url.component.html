@@ -1,120 +1,166 @@
-<ng-container *ngIf="showQrCode; else showCreateUrlForm;">
-    <section class="pt-7 pb-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
 
-                    <p class="mb-10">Link anyone to this URL
-                        <a class="font-weight-bold text-reset break-long-content" [routerLink]="null">
-                            {{ valueForQrCode|formatUrl }} </a> by sending them this QR code:
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+            <!-- Close -->
+            <button type="button" class="close back-button" aria-label="Click to go back">
+                <a routerLink="../">
+                    <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
+            </button>
+            <!-- Close -->
+            <button type="button" class="close" aria-label="Close">
+                <a routerLink="/"> <i class="fe fe-x" aria-hidden="true"></i></a>
+            </button>
 
-                    </p>
-                </div>
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Create QR Code</strong>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="text-center">
-                    <ngx-qrcode *ngIf="valueForQrCode" [elementType]="ELEMENT_TYPE"
-                        [errorCorrectionLevel]="CORRECTION_LEVEL" [value]="valueForQrCode" cssClass="coolQRCode">
-                    </ngx-qrcode>
-                </div>
-            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="showQrCode; else showCreateUrlForm;">
+                    <section class="pt-7 pb-12">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 text-center">
 
-            <div class="row justify-content-center mt-8">
-                <div class="col-12 col-lg-auto">
+                                    <p class="mb-10">Link anyone to this URL
+                                        <a class="font-weight-bold text-reset break-long-content" [routerLink]="null">
+                                            {{ valueForQrCode|formatUrl }} </a> by sending them this QR code:
 
-                    <!-- Submit -->
-                    <button class="btn btn-block btn-dark mb-2" (click)="downloadQRCode()" title="Download QR Code">
-                        <i class="fe fe-save mr-2"></i> Download QR Code
-                    </button>
-
-                </div>
-                <div class="col-12 col-lg-auto">
-
-                    <!-- Wishlist -->
-                    <button class="btn btn-outline-dark btn-block mb-2" title="Edit Details on QR Code"
-                        aria-label="Edit Details on QR Code" (click)="showHiddenCreateUrlQrCodeForm()">
-                        <i class="fe fe-edit-3 mr-2"></i>Edit QR Code
-                    </button>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-</ng-container>
-
-<ng-template #showCreateUrlForm>
-    <section class="pt-7 pb-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <p class="mb-1 font-size-xs">
-                        <a [routerLink]="null" class="text-reset">
-                            <i class="fe fe-link-2 mr-2"></i>URL
-                        </a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <!-- Divider -->
-                    <hr class="my-7">
-
-                    <!-- Form -->
-                    <form [formGroup]="websiteAddressFormGroup" (ngSubmit)="submitForm()">
-                        <!-- Billing details -->
-                        <div class="row">
-                            <div class="col-12">
-
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label class="sr-only" for="websiteAddressFormGroup__url">Website Address:</label>
-                                    <input class="form-control form-control-sm" id="websiteAddressFormGroup__url"
-                                        type="url" formControlName="url" placeholder="Website Address *"
-                                        [class.is-invalid]="websiteAddressFormGroup?.get('url')?.invalid && (isSubmitted || websiteAddressFormGroup?.get('url')?.touched)">
-                                    <div class="invalid-feedback"
-                                        *ngIf="this.websiteAddressFormGroup?.get('url')?.invalid && (isSubmitted || this.websiteAddressFormGroup?.get('url')?.touched)">
-                                        <ng-container
-                                            *ngIf="websiteAddressFormGroup?.get('url')?.hasError('required'); else showOtherErrors;">
-                                            Please provide a valid URL.
-                                        </ng-container>
-                                        <ng-template #showOtherErrors>
-                                            <ng-container
-                                                *ngIf="websiteAddressFormGroup?.get('url')?.hasError('required')">
-                                                Please enter the URL to create QR code.
-                                            </ng-container>
-                                            <ng-container
-                                                *ngIf="websiteAddressFormGroup?.get('url')?.hasError('maxlength')">
-                                                Website URL should not exceed 2083 chars long.
-                                            </ng-container>
-                                            <ng-container
-                                                *ngIf="websiteAddressFormGroup?.get('url')?.hasError('invalidUrl')">
-                                                Are you sure you entered the URL properly?
-                                            </ng-container>
-                                        </ng-template>
-                                    </div>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Disclaimer -->
-                        <p class="mb-7 font-size-xs text-gray-500">
+                            <div class="row justify-content-center">
+                                <div class="text-center">
+                                    <ngx-qrcode *ngIf="valueForQrCode" [elementType]="ELEMENT_TYPE"
+                                        [errorCorrectionLevel]="CORRECTION_LEVEL" [value]="valueForQrCode"
+                                        cssClass="coolQRCode">
+                                    </ngx-qrcode>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center mt-8">
+                                <div class="col-12 col-lg-auto">
+
+                                    <!-- Submit -->
+                                    <button class="btn btn-block btn-dark mb-2" (click)="downloadQRCode()"
+                                        title="Download QR Code">
+                                        <i class="fe fe-save mr-2"></i> Download QR Code
+                                    </button>
+
+                                </div>
+                                <div class="col-12 col-lg-auto">
+
+                                    <!-- Wishlist -->
+                                    <button class="btn btn-outline-dark btn-block mb-2" title="Edit Details on QR Code"
+                                        aria-label="Edit Details on QR Code" (click)="showHiddenCreateUrlQrCodeForm()">
+                                        <i class="fe fe-edit-3 mr-2"></i>Edit QR Code
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </ng-container>
+
+                <ng-template #showCreateUrlForm>
+                    <section class="pt-7 pb-12">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 text-center">
+                                    <p class="mb-1 font-size-xs">
+                                        <a [routerLink]="null" class="text-reset">
+                                            <i class="fe fe-link-2 mr-2"></i>URL
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <span class="text-gray-500">
+                                            Encode a URL into a QR-Code and then promote it to the world.
+                                        </span>
+                                        <!-- <a class="text-reset text-decoration-underline" [routerLink]="null"> Learn
+                            more</a> -->
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Divider -->
+                                    <hr class="my-7">
+
+                                    <!-- Form -->
+                                    <form [formGroup]="websiteAddressFormGroup" (ngSubmit)="submitForm()">
+                                        <!-- Billing details -->
+                                        <div class="row">
+                                            <div class="col-12">
+
+                                                <!-- Name -->
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="websiteAddressFormGroup__url">Website
+                                                        Address:</label>
+                                                    <input class="form-control form-control-sm"
+                                                        id="websiteAddressFormGroup__url" type="url"
+                                                        formControlName="url" placeholder="Website Address *"
+                                                        [class.is-invalid]="websiteAddressFormGroup?.get('url')?.invalid && (isSubmitted || websiteAddressFormGroup?.get('url')?.touched)">
+                                                    <div class="invalid-feedback"
+                                                        *ngIf="this.websiteAddressFormGroup?.get('url')?.invalid && (isSubmitted || this.websiteAddressFormGroup?.get('url')?.touched)">
+                                                        <ng-container
+                                                            *ngIf="websiteAddressFormGroup?.get('url')?.hasError('required'); else showOtherErrors;">
+                                                            Please provide a valid URL.
+                                                        </ng-container>
+                                                        <ng-template #showOtherErrors>
+                                                            <ng-container
+                                                                *ngIf="websiteAddressFormGroup?.get('url')?.hasError('required')">
+                                                                Please enter the URL to create QR code.
+                                                            </ng-container>
+                                                            <ng-container
+                                                                *ngIf="websiteAddressFormGroup?.get('url')?.hasError('maxlength')">
+                                                                Website URL should not exceed 2083 chars long.
+                                                            </ng-container>
+                                                            <ng-container
+                                                                *ngIf="websiteAddressFormGroup?.get('url')?.hasError('invalidUrl')">
+                                                                Are you sure you entered the URL properly?
+                                                            </ng-container>
+                                                        </ng-template>
+                                                    </div>
+
+                                                    <small class="form-text text-muted">
+                                                        <strong><i class="fe fe-info mr-2"></i>
+                                                            Tip!</strong> Try using <a href="http://www.tinyurl.com/"
+                                                            class="external" target="_blank" rel="nofollow">TinyURL</a>
+                                                        to
+                                                        encode your URL into a smaller
+                                                        form.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Disclaimer -->
+                                        <!-- <p class="mb-7 font-size-xs text-gray-500">
                             Your personal data will be used to process your order, support
                             your experience throughout this website, and for other purposes
                             described in our privacy policy.
-                        </p>
+                        </p> -->
 
-                        <!-- Button -->
-                        <button class="btn btn-block btn-dark" type="submit">
-                            Create QR Code
-                        </button>
+                                        <!-- Button -->
+                                        <button class="btn btn-block btn-dark" type="submit">
+                                            Create QR Code
+                                        </button>
 
-                    </form>
+                                    </form>
 
-                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </ng-template>
             </div>
         </div>
-    </section>
-</ng-template>
+    </div>
+</div>

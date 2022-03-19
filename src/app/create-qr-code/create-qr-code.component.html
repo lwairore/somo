@@ -6,13 +6,12 @@
         <div class="modal-content">
             <!-- Close -->
             <button type="button" class="close back-button" aria-label="Click to go back" *ngIf="showBackButton">
-                <a routerLink="/">
+                <a [routerLink]="BACK_TO">
                     <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
-
             </button>
             <!-- Close -->
             <button type="button" class="close" aria-label="Close">
-                <a routerLink="/"> <i class="fe fe-x" aria-hidden="true"></i></a>
+                <a routerLink="../"> <i class="fe fe-x" aria-hidden="true"></i></a>
             </button>
 
             <!-- Header-->
@@ -23,8 +22,5 @@
             <router-outlet></router-outlet>
 
         </div>
-
-
-
     </div>
 </div>

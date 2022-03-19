@@ -7,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class ScanQrCodeComponent implements OnInit {
+  scanResult: string | null = null;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  reset(): void {
+    this.scanResult = null;
+  }
+
+
+  scannedQrCodeResult(qrCodeResult: any) {
+    console.log("valueEmitted");
+    this.scanResult = qrCodeResult;
   }
 
 }

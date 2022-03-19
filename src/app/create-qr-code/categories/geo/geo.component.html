@@ -1,156 +1,196 @@
-<ng-container *ngIf="showQrCode; else showCreateSmsForm;">
-    <section class="pt-7 pb-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <p class="mb-10">Link anyone to get details for WiFi by sending them this QR code: </p>
-                </div>
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
+
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+            <!-- Close -->
+            <button type="button" class="close back-button" aria-label="Click to go back">
+                <a routerLink="../">
+                    <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
+            </button>
+            <!-- Close -->
+            <button type="button" class="close" aria-label="Close">
+                <a routerLink="/"> <i class="fe fe-x" aria-hidden="true"></i></a>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Create QR Code</strong>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="text-center">
-                    <ngx-qrcode *ngIf="valueForQrCode" [elementType]="ELEMENT_TYPE"
-                        [errorCorrectionLevel]="CORRECTION_LEVEL" [value]="valueForQrCode" cssClass="coolQRCode">
-                    </ngx-qrcode>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mt-8">
-                <div class="col-12 col-lg-auto">
-
-                    <!-- Submit -->
-                    <button class="btn btn-block btn-dark mb-2" (click)="downloadQRCode()" title="Download QR Code">
-                        <i class="fe fe-save mr-2"></i> Download QR Code
-                    </button>
-
-                </div>
-                <div class="col-12 col-lg-auto">
-
-                    <!-- Wishlist -->
-                    <button class="btn btn-outline-dark btn-block mb-2" title="Edit Details on QR Code"
-                        aria-label="Edit Details on QR Code" (click)="showHiddenGeoDetailsForm()">
-                        <i class="fe fe-edit-3 mr-2"></i>Edit QR Code
-                    </button>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-</ng-container>
-
-<ng-template #showCreateSmsForm>
-    <section class="pt-7 pb-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <p class="mb-1 font-size-xs">
-                        <a [routerLink]="null" class="text-reset">
-                            <i class="fe fe-map-pin mr-2"></i>Geo
-                        </a>
-                    </p>
-                    <p>
-                        <span class="text-gray-500">SMS marketing made simple. Allow your customers to send a text
-                            message to a designated number easily.</span>
-                        <a class="text-reset text-decoration-underline" [routerLink]="null"> Learn
-                            more</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <!-- Divider -->
-                    <hr class="my-7">
-
-                    <!-- Form -->
-                    <form [formGroup]="geoDetailsFormGroup" (ngSubmit)="submitForm()">
-                        <!-- Billing details -->
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-
-                                <!-- Latitude -->
-                                <div class="form-group">
-                                    <label class="sr-only" for="geoDetailsFormGroup__latitude">Latitude:</label>
-                                    <input class="form-control form-control-sm" id="geoDetailsFormGroup__latitude"
-                                        type="number" formControlName="latitude" placeholder="Latitude *"
-                                        [class.is-invalid]="geoDetailsFormGroup?.get('latitude')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('latitude')?.touched)">
-                                    <div class="invalid-feedback"
-                                        *ngIf="this.geoDetailsFormGroup?.get('latitude')?.invalid && (isSubmitted || this.geoDetailsFormGroup?.get('latitude')?.touched)">
-                                        <ng-container
-                                            *ngIf="geoDetailsFormGroup?.get('latitude')?.hasError('required'); else showOtherErrors;">
-                                            Please provide latitude.
-                                        </ng-container>
-                                        <ng-template #showOtherErrors>
-                                            <ng-container
-                                                *ngIf="geoDetailsFormGroup?.get('latitude')?.hasError('pattern')">
-                                                Are you sure you entered the latitude properly? Only numerical values
-                                                allowed.
-                                            </ng-container>
-
-                                        </ng-template>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <!-- Longitude -->
-                                <div class="form-group">
-                                    <label class="sr-only" for="geoDetailsFormGroup__longitude">Longitude:</label>
-                                    <input class="form-control form-control-sm" id="geoDetailsFormGroup__longitude"
-                                        type="number" formControlName="longitude" placeholder="Longitude *"
-                                        [class.is-invalid]="geoDetailsFormGroup?.get('longitude')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('longitude')?.touched)">
-                                    <div class="invalid-feedback"
-                                        *ngIf="this.geoDetailsFormGroup?.get('longitude')?.invalid && (isSubmitted || this.geoDetailsFormGroup?.get('longitude')?.touched)">
-                                        <ng-container
-                                            *ngIf="geoDetailsFormGroup?.get('longitude')?.hasError('required'); else showOtherErrors;">
-                                            Please provide longitude.
-                                        </ng-container>
-                                        <ng-template #showOtherErrors>
-                                            <ng-container
-                                                *ngIf="geoDetailsFormGroup?.get('longitude')?.hasError('pattern')">
-                                                Are you sure you entered the longitude properly? Only numerical values
-                                                allowed.
-                                            </ng-container>
-                                        </ng-template>
-                                    </div>
+            <div class="modal-body">
+                <ng-container *ngIf="showQrCode; else showCreateSmsForm;">
+                    <section class="pt-7 pb-12">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 text-center">
+                                    <p class="mb-10">Link anyone to get details for WiFi by sending them this QR code:
+                                    </p>
                                 </div>
                             </div>
 
+                            <div class="row justify-content-center">
+                                <div class="text-center">
+                                    <ngx-qrcode *ngIf="valueForQrCode" [elementType]="ELEMENT_TYPE"
+                                        [errorCorrectionLevel]="CORRECTION_LEVEL" [value]="valueForQrCode"
+                                        cssClass="coolQRCode">
+                                    </ngx-qrcode>
+                                </div>
+                            </div>
 
-                            <div class="col-12">
-                                <!-- Query -->
-                                <div class="form-group">
-                                    <label class="sr-only" for="geoDetailsFormGroup__query">Query:</label>
-                                    <input class="form-control form-control-sm" id="geoDetailsFormGroup__query"
-                                        type="text" placeholder="Query" formControlName="query"
-                                        [class.is-invalid]="geoDetailsFormGroup?.get('query')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('query')?.touched)">
-                                    <div class="invalid-feedback"
-                                        *ngIf="geoDetailsFormGroup?.get('query')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('query')?.touched)">
-                                        <ng-container *ngIf="geoDetailsFormGroup?.get('query')?.hasError('maxlength')">
-                                            Query should not exceed 60 chars long.
-                                        </ng-container>
-                                    </div>
+                            <div class="row justify-content-center mt-8">
+                                <div class="col-12 col-lg-auto">
+
+                                    <!-- Submit -->
+                                    <button class="btn btn-block btn-dark mb-2" (click)="downloadQRCode()"
+                                        title="Download QR Code">
+                                        <i class="fe fe-save mr-2"></i> Download QR Code
+                                    </button>
+
+                                </div>
+                                <div class="col-12 col-lg-auto">
+
+                                    <!-- Wishlist -->
+                                    <button class="btn btn-outline-dark btn-block mb-2" title="Edit Details on QR Code"
+                                        aria-label="Edit Details on QR Code" (click)="showHiddenGeoDetailsForm()">
+                                        <i class="fe fe-edit-3 mr-2"></i>Edit QR Code
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </ng-container>
+
+                <ng-template #showCreateSmsForm>
+                    <section class="pt-7 pb-12">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 text-center">
+                                    <p class="mb-1 font-size-xs">
+                                        <a [routerLink]="null" class="text-reset">
+                                            <i class="fe fe-map-pin mr-2"></i>Geo
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <span class="text-gray-500">
+                                            Encode location details in a QR-Code and then promote it so people can openly
+                                            locate that location.  
+                                        </span>
+                                        <!-- <a class="text-reset text-decoration-underline" [routerLink]="null"> Learn
+                                            more</a> -->
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Divider -->
+                                    <hr class="my-7">
+
+                                    <!-- Form -->
+                                    <form [formGroup]="geoDetailsFormGroup" (ngSubmit)="submitForm()">
+                                        <!-- Billing details -->
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+
+                                                <!-- Latitude -->
+                                                <div class="form-group">
+                                                    <label class="sr-only"
+                                                        for="geoDetailsFormGroup__latitude">Latitude:</label>
+                                                    <input class="form-control form-control-sm"
+                                                        id="geoDetailsFormGroup__latitude" type="number"
+                                                        formControlName="latitude" placeholder="Latitude *"
+                                                        [class.is-invalid]="geoDetailsFormGroup?.get('latitude')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('latitude')?.touched)">
+                                                    <div class="invalid-feedback"
+                                                        *ngIf="this.geoDetailsFormGroup?.get('latitude')?.invalid && (isSubmitted || this.geoDetailsFormGroup?.get('latitude')?.touched)">
+                                                        <ng-container
+                                                            *ngIf="geoDetailsFormGroup?.get('latitude')?.hasError('required'); else showOtherErrors;">
+                                                            Please provide latitude.
+                                                        </ng-container>
+                                                        <ng-template #showOtherErrors>
+                                                            <ng-container
+                                                                *ngIf="geoDetailsFormGroup?.get('latitude')?.hasError('pattern')">
+                                                                Are you sure you entered the latitude properly? Only
+                                                                numerical values
+                                                                allowed.
+                                                            </ng-container>
+
+                                                        </ng-template>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <!-- Longitude -->
+                                                <div class="form-group">
+                                                    <label class="sr-only"
+                                                        for="geoDetailsFormGroup__longitude">Longitude:</label>
+                                                    <input class="form-control form-control-sm"
+                                                        id="geoDetailsFormGroup__longitude" type="number"
+                                                        formControlName="longitude" placeholder="Longitude *"
+                                                        [class.is-invalid]="geoDetailsFormGroup?.get('longitude')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('longitude')?.touched)">
+                                                    <div class="invalid-feedback"
+                                                        *ngIf="this.geoDetailsFormGroup?.get('longitude')?.invalid && (isSubmitted || this.geoDetailsFormGroup?.get('longitude')?.touched)">
+                                                        <ng-container
+                                                            *ngIf="geoDetailsFormGroup?.get('longitude')?.hasError('required'); else showOtherErrors;">
+                                                            Please provide longitude.
+                                                        </ng-container>
+                                                        <ng-template #showOtherErrors>
+                                                            <ng-container
+                                                                *ngIf="geoDetailsFormGroup?.get('longitude')?.hasError('pattern')">
+                                                                Are you sure you entered the longitude properly? Only
+                                                                numerical values
+                                                                allowed.
+                                                            </ng-container>
+                                                        </ng-template>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-12">
+                                                <!-- Query -->
+                                                <div class="form-group">
+                                                    <label class="sr-only"
+                                                        for="geoDetailsFormGroup__query">Query:</label>
+                                                    <input class="form-control form-control-sm"
+                                                        id="geoDetailsFormGroup__query" type="text" placeholder="Query"
+                                                        formControlName="query"
+                                                        [class.is-invalid]="geoDetailsFormGroup?.get('query')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('query')?.touched)">
+                                                    <div class="invalid-feedback"
+                                                        *ngIf="geoDetailsFormGroup?.get('query')?.invalid && (isSubmitted || geoDetailsFormGroup?.get('query')?.touched)">
+                                                        <ng-container
+                                                            *ngIf="geoDetailsFormGroup?.get('query')?.hasError('maxlength')">
+                                                            Query should not exceed 60 chars long.
+                                                        </ng-container>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Disclaimer -->
+                                        <!-- <p class="mb-7 font-size-xs text-gray-500 mt-8">
+                                            Your personal data will be used to process your order, support
+                                            your experience throughout this website, and for other purposes
+                                            described in our privacy policy.
+                                        </p> -->
+
+                                        <!-- Button -->
+                                        <button class="btn btn-block btn-dark" type="submit">
+                                            Create QR Code
+                                        </button>
+
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Disclaimer -->
-                        <p class="mb-7 font-size-xs text-gray-500 mt-8">
-                            Your personal data will be used to process your order, support
-                            your experience throughout this website, and for other purposes
-                            described in our privacy policy.
-                        </p>
-
-                        <!-- Button -->
-                        <button class="btn btn-block btn-dark" type="submit">
-                            Create QR Code
-                        </button>
-
-                    </form>
-
-                </div>
+                    </section>
+                </ng-template>
             </div>
         </div>
-    </section>
-</ng-template>
+    </div>
+</div>

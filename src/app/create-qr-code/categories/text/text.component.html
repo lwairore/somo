@@ -1,121 +1,157 @@
-<ng-container *ngIf="showQrCode; else showCreateTextForm;">
-    <section class="pt-7 pb-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
 
-                    <p class="mb-10">Link anyone to this text
-                        <a class="font-weight-bold text-reset break-long-content" [routerLink]="null">
-                            {{ valueForQrCode|formatUrl }} </a> by sending them this QR code:
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+            <!-- Close -->
+            <button type="button" class="close back-button" aria-label="Click to go back">
+                <a routerLink="../">
+                    <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
+            </button>
+            <!-- Close -->
+            <button type="button" class="close" aria-label="Close">
+                <a routerLink="/"> <i class="fe fe-x" aria-hidden="true"></i></a>
+            </button>
 
-                    </p>
-                </div>
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Create QR Code</strong>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="text-center">
-                    <ngx-qrcode *ngIf="valueForQrCode" [elementType]="ELEMENT_TYPE"
-                        [errorCorrectionLevel]="CORRECTION_LEVEL" [value]="valueForQrCode" cssClass="coolQRCode">
-                    </ngx-qrcode>
-                </div>
-            </div>
+            <div class="modal-body">
+                <ng-container *ngIf="showQrCode; else showCreateTextForm;">
+                    <section class="pt-7 pb-12">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 text-center">
 
-            <div class="row justify-content-center mt-8">
-                <div class="col-12 col-lg-auto">
+                                    <p class="mb-10">Link anyone to this text
+                                        <a class="font-weight-bold text-reset break-long-content" [routerLink]="null">
+                                            {{ valueForQrCode|formatUrl }} </a> by sending them this QR code:
 
-                    <!-- Submit -->
-                    <button class="btn btn-block btn-dark mb-2" (click)="downloadQRCode()" title="Download QR Code">
-                        <i class="fe fe-save mr-2"></i> Download QR Code
-                    </button>
-
-                </div>
-                <div class="col-12 col-lg-auto">
-
-                    <!-- Wishlist -->
-                    <button class="btn btn-outline-dark btn-block mb-2" title="Edit Details on QR Code"
-                        aria-label="Edit Details on QR Code" (click)="showHiddenCreateTextQrCodeForm()">
-                        <i class="fe fe-edit-3 mr-2"></i>Edit QR Code
-                    </button>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-</ng-container>
-
-<ng-template #showCreateTextForm>
-    <section class="pt-7 pb-12">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <p class="mb-1 font-size-xs">
-                        <a [routerLink]="null" class="text-reset">
-                            <i class="fe fe-type mr-2"></i>Text
-                        </a>
-                    </p>
-                    <p>
-                        <span class="text-gray-500">Display plain text in any language. Write up to 300 characters with
-                            letters, numbers, and symbols.</span>
-                        <a class="text-reset text-decoration-underline" [routerLink]="null"> Learn
-                            more</a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <!-- Divider -->
-                    <hr class="my-7">
-
-                    <!-- Form -->
-                    <form [formGroup]="textFormGroup" (ngSubmit)="submitForm()">
-                        <!-- Billing details -->
-                        <div class="row">
-                            <div class="col-12">
-
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label class="sr-only" for="textFormGroup__text">Text:</label>
-                                    <textarea class="form-control form-control-sm" id="textFormGroup__text" type="text"
-                                        formControlName="text" placeholder="Text *"
-                                        [class.is-invalid]="textFormGroup?.get('text')?.invalid && (isSubmitted || textFormGroup?.get('text')?.touched)"
-                                        appDynamicallySetHeightUsingScrollHeight></textarea>
-                                    <div class="invalid-feedback"
-                                        *ngIf="this.textFormGroup?.get('text')?.invalid && (isSubmitted || this.textFormGroup?.get('text')?.touched)">
-                                        <ng-container
-                                            *ngIf="textFormGroup?.get('text')?.hasError('required'); else showOtherErrors;">
-                                            Please provide a text.
-                                        </ng-container>
-                                        <ng-template #showOtherErrors>
-                                            <ng-container *ngIf="textFormGroup?.get('text')?.hasError('maxlength')">
-                                                Text should not exceed 300 chars long.
-                                            </ng-container>
-                                        </ng-template>
-                                    </div>
-                                    <small class="form-text text-muted"><i class="fe fe-info mr-2"></i>Hint: The
-                                        shorter, the better. Some older scanner apps are having problems with texts
-                                        longer than about 300 chars.</small>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Disclaimer -->
-                        <p class="mb-7 font-size-xs text-gray-500">
+                            <div class="row justify-content-center">
+                                <div class="text-center">
+                                    <ngx-qrcode *ngIf="valueForQrCode" [elementType]="ELEMENT_TYPE"
+                                        [errorCorrectionLevel]="CORRECTION_LEVEL" [value]="valueForQrCode"
+                                        cssClass="coolQRCode">
+                                    </ngx-qrcode>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center mt-8">
+                                <div class="col-12 col-lg-auto">
+
+                                    <!-- Submit -->
+                                    <button class="btn btn-block btn-dark mb-2" (click)="downloadQRCode()"
+                                        title="Download QR Code">
+                                        <i class="fe fe-save mr-2"></i> Download QR Code
+                                    </button>
+
+                                </div>
+                                <div class="col-12 col-lg-auto">
+
+                                    <!-- Wishlist -->
+                                    <button class="btn btn-outline-dark btn-block mb-2" title="Edit Details on QR Code"
+                                        aria-label="Edit Details on QR Code" (click)="showHiddenCreateTextQrCodeForm()">
+                                        <i class="fe fe-edit-3 mr-2"></i>Edit QR Code
+                                    </button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </ng-container>
+
+                <ng-template #showCreateTextForm>
+                    <section class="pt-7 pb-12">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 text-center">
+                                    <p class="mb-1 font-size-xs">
+                                        <a [routerLink]="null" class="text-reset">
+                                            <i class="fe fe-type mr-2"></i>Text
+                                        </a>
+                                    </p>
+                                    <p>
+                                        <span class="text-gray-500">
+                                            <!-- Display plain text in any language. Write up to 300 characters with
+                            letters, numbers, and symbols. -->
+                                            Encode a message or any form of text in a QR-Code.
+                                        </span>
+                                        <!-- <a class="text-reset text-decoration-underline" [routerLink]="null"> Learn
+                            more</a> -->
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Divider -->
+                                    <hr class="my-7">
+
+                                    <!-- Form -->
+                                    <form [formGroup]="textFormGroup" (ngSubmit)="submitForm()">
+                                        <!-- Billing details -->
+                                        <div class="row">
+                                            <div class="col-12">
+
+                                                <!-- Name -->
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="textFormGroup__text">Text:</label>
+                                                    <textarea class="form-control form-control-sm"
+                                                        id="textFormGroup__text" type="text" formControlName="text"
+                                                        placeholder="Text *"
+                                                        [class.is-invalid]="textFormGroup?.get('text')?.invalid && (isSubmitted || textFormGroup?.get('text')?.touched)"
+                                                        appDynamicallySetHeightUsingScrollHeight></textarea>
+                                                    <div class="invalid-feedback"
+                                                        *ngIf="this.textFormGroup?.get('text')?.invalid && (isSubmitted || this.textFormGroup?.get('text')?.touched)">
+                                                        <ng-container
+                                                            *ngIf="textFormGroup?.get('text')?.hasError('required'); else showOtherErrors;">
+                                                            Please provide a text.
+                                                        </ng-container>
+                                                        <ng-template #showOtherErrors>
+                                                            <ng-container
+                                                                *ngIf="textFormGroup?.get('text')?.hasError('maxlength')">
+                                                                Text should not exceed 300 chars long.
+                                                            </ng-container>
+                                                        </ng-template>
+                                                    </div>
+                                                    <small class="form-text text-muted"><i
+                                                            class="fe fe-info mr-2"></i>Hint:
+                                                        The
+                                                        shorter, the better. Some older scanner apps are having problems
+                                                        with texts
+                                                        longer than about 300 chars.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Disclaimer -->
+                                        <!-- <p class="mb-7 font-size-xs text-gray-500">
                             Your personal data will be used to process your order, support
                             your experience throughout this website, and for other purposes
                             described in our privacy policy.
-                        </p>
+                        </p> -->
 
-                        <!-- Button -->
-                        <button class="btn btn-block btn-dark" type="submit">
-                            Create QR Code
-                        </button>
+                                        <!-- Button -->
+                                        <button class="btn btn-block btn-dark" type="submit">
+                                            Create QR Code
+                                        </button>
 
-                    </form>
+                                    </form>
 
-                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </ng-template>
             </div>
         </div>
-    </section>
-</ng-template>
+    </div>
+</div>

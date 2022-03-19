@@ -1,4 +1,4 @@
-import { memoize } from "lodash";
+import { memoize } from "lodash-es";
 
 export const isObjectEmpty = memoize(
     (obj: any) => {

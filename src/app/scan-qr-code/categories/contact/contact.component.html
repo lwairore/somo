@@ -1,0 +1,111 @@
+<div class="modal fixed-right fade show" id="modalShoppingCart" tabindex="-1" role="dialog"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div class="modal-dialog modal-dialog-vertical full-modal" role="document">
+
+        <!-- Full cart (add `.d-none` to disable it) -->
+        <div class="modal-content">
+
+            <button type="button" class="close back-button" aria-label="Click to go back" (click)="resetScanner()">
+                <a [routerLink]="null">
+                    <i class="fe fe-arrow-left" aria-hidden="true"></i></a>
+
+            </button>
+
+            <!-- Share -->
+            <button type="button" class="close" aria-label="Share the value of QR code" data-toggle="modal"
+                data-target="#modalSocialShareCta">
+                <a [routerLink]="null"> <i class="fe fe-share-2" aria-hidden="true"></i></a>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Contact</strong>
+            </div>
+            <div class="text-center mt-8">
+                <div class="avatar avatar-xxl mb-6 mb-md-0"><span class="avatar-title rounded-circle"><i
+                            class="fa fa-user"></i></span></div>
+                <p class="mb-0 font-size-sm font-weight-bold mt-2">{{ mecardScanResult?.fullName }}</p>
+            </div>
+
+            <div class="container text-center">
+                <div class="row justify-content-center py-9">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="row">
+                            <div class="col-12" *ngIf="mecardScanResult?.notes">
+
+                                <!-- Text -->
+                                <p class="text-gray-500">
+                                    {{ mecardScanResult.notes }}
+                                </p>
+
+                            </div>
+                            <div class="col-12">
+
+                                <!-- List -->
+                                <ul class="list list-unstyled mb-md-0 text-gray-500">
+                                    <li *ngIf="mecardScanResult?.phone">
+                                        <strong class="text-body">Phone</strong>: {{ mecardScanResult.phone }}
+                                    </li>
+                                    <li *ngIf="mecardScanResult?.email">
+                                        <strong class="text-body">Email</strong>: {{ mecardScanResult.email }}
+                                    </li>
+                                    <li *ngIf="mecardScanResult?.address">
+                                        <strong class="text-body">Address</strong>: {{ mecardScanResult.address }}
+                                    </li>
+                                    <li *ngIf="mecardScanResult?.organization">
+                                        <strong>Organization</strong>: {{ mecardScanResult.organization }}
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="modal-body">
+                <a class="btn btn-block btn-dark" [routerLink]="null" (click)="copyToClipboard()">Copy<i
+                        class="fe fe-copy ml-2"></i></a>
+                <a class="btn btn-block btn-danger" rel="noopener noreferrer" [href]="constructGoogleMapsSearchAPI({
+                        query:  mecardScanResult.address
+                    })" *ngIf="mecardScanResult.address" target="_blank">Show map<i class="fe fe-map-pin ml-2"></i></a>
+
+                <ng-container *ngIf="mecardScanResult.phone">
+                    <a class="btn btn-block btn-danger" [href]="callLink()|sanitizeValue:'url'" target="_blank">
+                        Call<i class="fe fe-phone ml-2"></i></a>
+                    <a class="btn btn-block btn-danger" [href]="sendSMSLink()|sanitizeValue:'url'" target="_blank">
+                        Send SMS<i class="fe fe-message-square ml-2"></i></a>
+                </ng-container>
+                <a class="btn btn-block btn-danger" [href]="sendEmailLink()|sanitizeValue:'url'"
+                    *ngIf="mecardScanResult.email" target="_blank">
+                    Send email<i class="fe fe-mail ml-2"></i></a>
+            </div>
+            <!-- Footer -->
+            <div class="modal-footer line-height-fixed font-size-xs bg-light mt-auto text-muted"
+                *ngIf="mecardScanResult?.notes && contentContainsURL(mecardScanResult.notes)">
+                <strong>This content comes from a third party. If you would like to view the content, please tap the
+                    <em>Open</em> button above, or
+                    copy the content/link above and paste it into your browser. We recommend you always exercise
+                    caution opening links you do not recognize.</strong>
+            </div>
+
+            <div class="alert alert-danger alert-dismissible fade show fixed-bottom" role="alert"
+                *ngIf="showCopiedToClipboardFeedback">
+
+                <!-- Text -->
+                <strong>Contact copied to clipboard!</strong>
+
+                <!-- Button -->
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-social-share-cta [title]="constructMecardText()" [description]="constructMecardText()"></app-social-share-cta>

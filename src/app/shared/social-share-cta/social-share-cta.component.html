@@ -1,0 +1,36 @@
+<div class="modal fixed-right fade" id="modalSocialShareCta" tabindex="-1" role="dialog" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-vertical" role="document">
+        <div class="modal-content">
+
+            <!-- Close -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fe fe-x" aria-hidden="true"></i>
+            </button>
+
+            <!-- Header-->
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Share</strong>
+            </div>
+            <div class="modal-body border-top font-size-sm">
+                <!-- Items -->
+                <div class="row align-items-center position-relative mb-5" *ngFor="let shareItem of shareOnButtons">
+
+                    <div class="col position-static">
+
+                        <!-- Text -->
+                        <p class="mb-0 font-weight-bold">
+                            <a class="stretched-link text-body" [routerLink]="null" [shareButton]="shareItem.name"
+                                [title]="title" [url]="url" [description]="description">
+                                {{ shareItem?.fullName }}
+                            </a>
+                            <br>
+                            <span class="text-muted">{{ shareItem?.hint }}</span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

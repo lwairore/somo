@@ -1,0 +1,31 @@
+<div id="modalSelectQrCodeCta" tabindex="-1" role="dialog" class="modal fixed-right fade show"
+    style="padding-right: 15px; display: block;" aria-modal="true">
+    <div role="document" class="modal-dialog modal-dialog-vertical full-modal">
+        <div class="modal-content">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close" routerLink="../">
+                <i aria-hidden="true" class="fe fe-x"></i>
+            </button>
+            <div class="modal-header line-height-fixed font-size-lg">
+                <strong class="mx-auto">Create and Scan QR Code faster with our free app!</strong>
+            </div>
+            <div class="modal-body">
+                <ng-template #showOtherDownloads>
+                    <a [routerLink]="null" data-dismiss="modal" class="btn btn-block btn-dark" (click)="installPwa()">
+                        <i class="fe fe-download-cloud mr-2"></i>Install</a>
+                </ng-template>
+
+                <div *ngIf="platformType === 'ios'; else showOtherDownloads">To install <a [routerLink]="null">Somo</a>
+                    App on your device
+                    tap the <code [ngClass]="['language-plaintext', 'highlighter-rouge']">Menu button</code>
+                    and then <code
+                        [ngClass]="['language-plaintext', 'highlighter-rouge']">Add to Home screen button</code>
+                    <div [ngClass]="['text-center', 'mt-2']"><img loading="lazy" src="/assets/img/ios/ios-menu-btn.png"
+                            alt="Image is showing ios menu button.">
+                        <span [ngClass]="['fa', 'fa-arrow-right', 'ml-2', 'mr-2']"></span> <img loading="lazy"
+                            src="/assets/img/ios/ios-add-btn.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
