@@ -5,6 +5,7 @@
   "background_color": "#fff",
   "display": "standalone",
   "scope": "./",
+  "id": "/somo/",
   "start_url": "./",
   "description": "Create or scan QR Code to visit web-pages, dial phone numbers, text messages or tweets, share contact data or access Wi-Fi networks (and many more)",
   "related_applications": [],
@@ -13,7 +14,7 @@
     {
       "name": "Scan",
       "description": "Scan the QR codes with your smartphone to visit web-pages, dial phone numbers, text messages or tweets, share contact data or access Wi-Fi networks (and many more).",
-      "url": "/scan",
+      "url": "./scan",
       "icons": [
         {
           "src": "assets/pwa/shortcuts/scan/scan-qr-code-image-72x72.png",
@@ -68,7 +69,7 @@
     {
       "name": "Create",
       "description": "Create QR Codes for free",
-      "url": "/create",
+      "url": "./create",
       "icons": [
         {
           "src": "assets/pwa/shortcuts/create/create-qr-code-image-72x72.png",
