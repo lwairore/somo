@@ -14,7 +14,7 @@
                         <i class="fe fe-download-cloud mr-2"></i>Install</a>
                 </ng-template>
 
-                <div *ngIf="platformType === 'ios'; else showOtherDownloads">To install <a [routerLink]="null">Somo</a>
+                <div *ngIf="isIos; else showOtherDownloads">To install <a [routerLink]="null">Somo</a>
                     App on your device
                     tap the <code [ngClass]="['language-plaintext', 'highlighter-rouge']">Menu button</code>
                     and then <code
