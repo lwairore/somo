@@ -147,6 +147,9 @@
               "devServerTarget": "qr-code-skana:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }},
