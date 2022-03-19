@@ -23,16 +23,16 @@ export class NavbarComponent implements OnInit {
       textContent: 'Scan QR Code',
       show: true
     },
-    {
-      href: '/contact-us',
-      textContent: 'Contact Us',
-      show: true
-    },
-    {
-      href: '/about-us',
-      textContent: 'About Us',
-      show: true
-    },
+    // {
+    //   href: '/contact-us',
+    //   textContent: 'Contact Us',
+    //   show: true
+    // },
+    // {
+    //   href: '/about-us',
+    //   textContent: 'About Us',
+    //   show: true
+    // },
     {
       href: '/install-app',
       textContent: 'Install App',
