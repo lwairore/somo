@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1647662270457,
+  "timestamp": 1647662468343,
   "index": "/somo/index.html",
   "assetGroups": [
     {
@@ -20,8 +20,8 @@
         "/somo/4-es5.d2b3658bc76851e3b122.js",
         "/somo/9-es2015.7b6641579a1a336ae54f.js",
         "/somo/9-es5.7b6641579a1a336ae54f.js",
-        "/somo/common-es2015.df4893ec8f92e2c1f0a6.js",
-        "/somo/common-es5.df4893ec8f92e2c1f0a6.js",
+        "/somo/common-es2015.6350c835e42bc1faf42d.js",
+        "/somo/common-es5.6350c835e42bc1faf42d.js",
         "/somo/favicon.ico",
         "/somo/index.html",
         "/somo/main-es2015.4897ec1ff093a1378580.js",
@@ -29,8 +29,8 @@
         "/somo/manifest.webmanifest",
         "/somo/polyfills-es2015.2eebf3cd865574802589.js",
         "/somo/polyfills-es5.a0e845ca70d9489cf42d.js",
-        "/somo/runtime-es2015.63cf4d0255f96524bc24.js",
-        "/somo/runtime-es5.63cf4d0255f96524bc24.js",
+        "/somo/runtime-es2015.a6a8371543f0f724b640.js",
+        "/somo/runtime-es5.a6a8371543f0f724b640.js",
         "/somo/styles.4b612be519fe5fea24b1.css"
       ],
       "patterns": []
@@ -200,17 +200,17 @@
     "/somo/assets/pwa/shortcuts/scan/scan-qr-code-image-512x512.png": "6b38117eaa39852dfb459b1f50e0079df33f003d",
     "/somo/assets/pwa/shortcuts/scan/scan-qr-code-image-72x72.png": "4a8fb4cc509fd0ee75fcbb1aeafa1cb8678cdf40",
     "/somo/assets/pwa/shortcuts/scan/scan-qr-code-image-96x96.png": "83cf85fd83d720e62bd66d89f5cedd88edc8454b",
-    "/somo/common-es2015.df4893ec8f92e2c1f0a6.js": "c67b7a8081d5a4c7ce72f014eecc7bc8866620ab",
-    "/somo/common-es5.df4893ec8f92e2c1f0a6.js": "8afc7bcc4924f2ca1349f784fdf996db1bcc259c",
+    "/somo/common-es2015.6350c835e42bc1faf42d.js": "32dc836f209794d293640ef3cfef250240e24c0f",
+    "/somo/common-es5.6350c835e42bc1faf42d.js": "498d3d3f87641651284554c9e3272a7fb65ebd3a",
     "/somo/favicon.ico": "92b8d2fbe89fcf5fe3645a8e989410914bbdb240",
-    "/somo/index.html": "20842809fd2897837b13e90af215b0834e740d4f",
+    "/somo/index.html": "42da1721f511fc98e7691b2b4c577dcae6c827a3",
     "/somo/main-es2015.4897ec1ff093a1378580.js": "7b507a1884b452b071e3354cee9c0f75fff00f9f",
     "/somo/main-es5.4897ec1ff093a1378580.js": "65616ece4d375b7e2f4a63e8ecb98b3ff3af5a0f",
     "/somo/manifest.webmanifest": "f8ec67542cdf481c2440b41e832cefe77ab71246",
     "/somo/polyfills-es2015.2eebf3cd865574802589.js": "38c401aacfa84b10782d4128d2f672bbafb86ec0",
     "/somo/polyfills-es5.a0e845ca70d9489cf42d.js": "dd295ccf250bb9c560d3544e2f086bd318cfd09e",
-    "/somo/runtime-es2015.63cf4d0255f96524bc24.js": "35506ef514cc0963c679894c3c76fd9d4f446e66",
-    "/somo/runtime-es5.63cf4d0255f96524bc24.js": "18bdc5d7fed799ec10dc6a37fd28f2d90744bf95",
+    "/somo/runtime-es2015.a6a8371543f0f724b640.js": "880f3ff22d080136d96945cea42341f830836493",
+    "/somo/runtime-es5.a6a8371543f0f724b640.js": "54ae587070cc67c521414a4c389e7a4a349332e6",
     "/somo/styles.4b612be519fe5fea24b1.css": "63fede8103f64f830eabddd28051883150627ee6"
   },
   "navigationUrls": [
