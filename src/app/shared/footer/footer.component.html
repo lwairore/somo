@@ -5,12 +5,12 @@
         <div class="col-12 col-md-10 col-lg-8 col-xl-6">
 
           <!-- Heading -->
-          <h5 class="mb-11 text-center text-white">
+          <h5 class="text-center text-white" [class.mb-11]="showFooterSummary">
             Made with <span style="color: #e25555;">♥</span> </h5>
 
         </div>
       </div>
-      <div class="row" *ngIf="0">
+      <div class="row" *ngIf="showFooterSummary">
         <div class="col-12 col-md-3">
 
           <!-- Heading -->
