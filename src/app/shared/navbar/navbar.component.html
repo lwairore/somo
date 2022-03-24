@@ -36,9 +36,18 @@
                             {{ navItem.get('textContent') }}
                         </a>
                     </li>
+
                 </ng-container>
+                <li class="nav-item" *ngIf="!this.isInstalled">
+                    <!-- Toggle -->
+                    <a class="nav-link" data-toggle="modal" href="#modalInstallApp">
+                        Install App
+                    </a>
+                </li>
             </ul>
         </div>
 
     </div>
 </nav>
+
+<app-install-app></app-install-app>

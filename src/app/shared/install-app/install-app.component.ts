@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PwaService } from '../services/pwa.service';
+import { PwaService } from '@sharedModule/services/pwa.service';
 
 @Component({
   selector: 'app-install-app',
@@ -25,7 +25,11 @@ export class InstallAppComponent implements OnInit, OnDestroy {
   }
 
   installPwa(): void {
-    this.pwaService.promptEvent.prompt();
+    if (!this.pwaService.promptEvent){
+      this.pwaService.setUpEvents();
+    }
+   
+    this.pwaService.promptEvent?.prompt();
   }
 
 }

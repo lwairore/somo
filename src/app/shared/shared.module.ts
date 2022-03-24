@@ -13,6 +13,7 @@ import { SocialShareCtaComponent } from './social-share-cta/social-share-cta.com
 import { ShareModule } from 'ngx-sharebuttons';
 import { WrapUrlInAnchorTagPipe } from './pipes/wrap-url-in-anchor-tag.pipe';
 import { ExternalLinkDirective } from './directives/external-link.directive';
+import { InstallAppComponent } from './install-app/install-app.component';
 
 
 
@@ -28,7 +29,8 @@ import { ExternalLinkDirective } from './directives/external-link.directive';
     SphericalCoordinatesToDmsPipe,
     SocialShareCtaComponent,
     WrapUrlInAnchorTagPipe,
-    ExternalLinkDirective,
+    ExternalLinkDirective, InstallAppComponent,
+    InstallAppComponent,
   ],
   imports: [
     CommonModule,

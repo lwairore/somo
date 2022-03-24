@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { InstallAppComponent } from './install-app/install-app.component';
 
 
 const routes: Routes = [
@@ -8,10 +7,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./home/home.module')
       .then(h => h.HomeModule),
-  },
-  {
-    path: 'install-app',
-    component: InstallAppComponent,
   },
   {
     path: 'contact-us',

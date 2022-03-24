@@ -5,12 +5,10 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { InstallAppComponent } from './install-app/install-app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InstallAppComponent,
   ],
   imports: [
     BrowserModule,

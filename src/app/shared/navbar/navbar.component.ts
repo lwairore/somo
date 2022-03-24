@@ -33,11 +33,6 @@ export class NavbarComponent implements OnInit {
     //   textContent: 'About Us',
     //   show: true
     // },
-    {
-      href: '/install-app',
-      textContent: 'Install App',
-      show: !this.isInstalled
-    },
   ]);
 
   constructor() { }

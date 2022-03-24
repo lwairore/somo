@@ -1,5 +1,5 @@
-<div id="modalSelectQrCodeCta" tabindex="-1" role="dialog" class="modal fixed-right fade show"
-    style="padding-right: 15px; display: block;" aria-modal="true">
+<div id="modalInstallApp" tabindex="-1" role="dialog" class="modal fixed-right fade"
+    style="padding-right: 15px; display: block;" aria-modal="true" style="display: none;">
     <div role="document" class="modal-dialog modal-dialog-vertical full-modal">
         <div class="modal-content">
             <button type="button" data-dismiss="modal" aria-label="Close" class="close" routerLink="../">
@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <ng-template #showOtherDownloads>
-                    <a [routerLink]="null" data-dismiss="modal" class="btn btn-block btn-dark" (click)="installPwa()">
+                    <a [routerLink]="null" class="btn btn-block btn-dark" (click)="installPwa()">
                         <i class="fe fe-download-cloud mr-2"></i>Install</a>
                 </ng-template>
 
